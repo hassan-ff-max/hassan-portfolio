@@ -1,749 +1,910 @@
+
 <!DOCTYPE html>
-<html lang="ur" class="scroll-smooth">
+<html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HASSAN OFC PORTFOLIO | Golden Words, Projects & Gallery</title>
-    
-    <!-- Tailwind CSS CDN -->
+    <title>HASSAN UMAIR | Ultra-High-End Developer Portfolio</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Cinzel & Montserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons for Social Logos & UI -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        cinzel: ['Cinzel', 'serif'],
-                        montserrat: ['Montserrat', 'sans-serif'],
-                    },
                     colors: {
-                        gold: {
-                            light: '#FFF2A3',
-                            DEFAULT: '#D4AF37',
-                            dark: '#AA771C'
-                        }
-                    }
+                        cyberDark: '#0a0b10',
+                        cyberPanel: 'rgba(15, 23, 42, 0.75)',
+                        neonCyan: '#00f0ff',
+                        neonPurple: '#8b5cf6',
+                        neonPink: '#ec4899',
+                        neonGreen: '#10b981',
+                        neonGold: '#f59e0b',
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        space: ['Space Grotesk', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    },
                 }
             }
         }
     </script>
-
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        /* Custom Glowing & Gradient Effects */
         body {
-            background-color: #080b13;
-            color: #f1f5f9;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0a0b10;
+            color: #f8fafc;
             overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Nature & Night Sky Gradient Background */
-        .sky-bg {
-            background: radial-gradient(ellipse at top, #141e30 0%, #080b13 100%);
-            position: relative;
+        /* Particles Background */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
         }
 
-        /* Ambient Stars effect */
-        .stars-overlay {
-            background-image: 
-                radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 40px 70px, #d4af37, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 160px 120px, #ffd700, rgba(0,0,0,0)),
-                radial-gradient(1.5px 1.5px at 230px 190px, #ffffff, rgba(0,0,0,0));
-            background-repeat: repeat;
-            background-size: 280px 280px;
-            opacity: 0.65;
+        /* Glassmorphism Styling */
+        .glass-panel {
+            background: rgba(13, 19, 33, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 240, 255, 0.18);
         }
 
-        /* Metallic Gold Text Gradient */
-        .gold-text {
-            background: linear-gradient(135deg, #FFF2A3 0%, #D4AF37 40%, #FFE066 70%, #AA771C 100%);
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 240, 255, 0.6);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px -15px rgba(0, 240, 255, 0.3), 0 0 20px rgba(139, 92, 246, 0.25);
+        }
+
+        /* Gradient Neon Text */
+        .neon-text {
+            background: linear-gradient(135deg, #00f0ff 0%, #8b5cf6 50%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 18px rgba(212, 175, 55, 0.25);
         }
 
-        /* Golden Glowing Elements */
-        .gold-glow {
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
-        }
-
-        .gold-glow-hover {
+        /* Cyberpunk Button Style */
+        .cyber-btn {
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.25), rgba(139, 92, 246, 0.35));
+            border: 1px solid #00f0ff;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
             transition: all 0.3s ease;
         }
-        .gold-glow-hover:hover {
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-            border-color: rgba(212, 175, 55, 0.8);
+
+        .cyber-btn:hover {
+            background: linear-gradient(135deg, #00f0ff, #8b5cf6);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.7), 0 0 40px rgba(139, 92, 246, 0.5);
+            color: #ffffff;
+            transform: translateY(-3px);
         }
 
-        /* Pulsing Glow Animation */
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.35; transform: scale(1); }
-            50% { opacity: 0.75; transform: scale(1.08); }
+        /* Rotating Glowing Border */
+        .cyber-avatar-frame {
+            position: relative;
+            padding: 5px;
+            background: linear-gradient(45deg, #00f0ff, #8b5cf6, #ec4899, #10b981);
+            background-size: 300% 300%;
+            animation: gradientBorder 5s ease infinite;
+            border-radius: 2.2rem;
         }
 
-        .animate-glow-pulse {
-            animation: pulseGlow 4s infinite ease-in-out;
-        }
-
-        /* Typewriter Cursor animation */
-        .typewriter-cursor::after {
-            content: '|';
-            animation: blink 0.8s infinite;
-            color: #D4AF37;
-            font-weight: bold;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+        @keyframes gradientBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #080b13;
+            background: #0a0b10;
         }
         ::-webkit-scrollbar-thumb {
-            background: #D4AF37;
-            border-radius: 3px;
+            background: #1e293b;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f0ff;
+        }
+
+        /* Toast Popup */
+        #toast {
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        #toast.show {
+            transform: translateY(0);
+            opacity: 1;
         }
     </style>
 </head>
-<body class="sky-bg min-h-screen flex flex-col justify-between selection:bg-yellow-500 selection:text-black">
+<body class="selection:bg-cyan-500 selection:text-black">
 
-    <!-- Stars Overlay Background -->
-    <div class="stars-overlay fixed inset-0 pointer-events-none z-0"></div>
+    <!-- Interactive Background Particles Canvas -->
+    <canvas id="particles-canvas"></canvas>
 
-    <!-- Soft Ambient Glow Orbs -->
-    <div class="fixed top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-amber-500/10 rounded-full blur-[100px] sm:blur-[130px] pointer-events-none animate-glow-pulse z-0"></div>
-    <div class="fixed bottom-10 right-5 w-[220px] sm:w-[350px] h-[220px] sm:h-[350px] bg-yellow-600/10 rounded-full blur-[90px] pointer-events-none z-0"></div>
+    <!-- Background Ambient Glow Orbs -->
+    <div class="fixed top-10 left-10 w-96 h-96 bg-neonCyan/10 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+    <div class="fixed bottom-10 right-10 w-96 h-96 bg-neonPurple/15 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-neonPink/5 rounded-full blur-[180px] pointer-events-none -z-10"></div>
 
-    <!-- Toast Notification for Copy -->
-    <div id="toast" class="fixed bottom-6 right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-6 bg-amber-500 text-slate-950 px-5 py-3 rounded-xl font-bold shadow-2xl z-50 flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300 text-sm">
-        <i class="fa-solid fa-circle-check text-lg"></i>
-        <span id="toast-msg">Quote Copied to Clipboard!</span>
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex items-center justify-between glass-panel rounded-2xl px-6 py-3 border border-cyan-500/20">
+            <a href="#" class="text-lg sm:text-xl font-black font-orbitron tracking-wider neon-text flex items-center gap-2">
+                <span class="p-2 bg-cyan-500/10 border border-cyan-500/30 rounded-xl text-neonCyan">
+                    <i class="fa-solid fa-code-merge"></i>
+                </span>
+                HASSAN UMAIR
+            </a>
+            
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 text-xs font-bold font-mono text-slate-300">
+                <a href="#about" class="hover:text-neonCyan transition-colors flex items-center gap-1.5"><i class="fa-solid fa-user-astronaut text-neonCyan"></i> ABOUT</a>
+                <a href="#projects" class="hover:text-neonCyan transition-colors flex items-center gap-1.5"><i class="fa-solid fa-rocket text-neonPurple"></i> PROJECTS</a>
+                <a href="#socials" class="hover:text-neonCyan transition-colors flex items-center gap-1.5"><i class="fa-solid fa-share-nodes text-neonPink"></i> SOCIALS</a>
+                <a href="#gallery" class="hover:text-neonCyan transition-colors flex items-center gap-1.5"><i class="fa-solid fa-images text-neonGreen"></i> GALLERY</a>
+                <a href="#contact" class="hover:text-neonCyan transition-colors flex items-center gap-1.5"><i class="fa-solid fa-paper-plane text-cyan-400"></i> CONTACT</a>
+            </nav>
+
+            <!-- Quick Action CTA Header -->
+            <div class="hidden md:flex items-center gap-3 font-mono">
+                <a href="https://wa.me/923294675242" target="_blank" class="px-4 py-2 bg-emerald-500/10 border border-emerald-500/40 hover:bg-emerald-500/20 text-emerald-400 rounded-xl text-xs font-bold transition-all flex items-center gap-2 shadow-lg shadow-emerald-500/10">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> HASSAN OFC
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-neonCyan text-xl p-2">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden max-w-7xl mx-auto mt-2 glass-panel rounded-2xl p-4 flex flex-col gap-3 font-mono text-xs">
+            <a href="#about" class="py-2.5 px-4 hover:bg-cyan-500/10 rounded-xl text-slate-300 hover:text-neonCyan flex items-center gap-3"><i class="fa-solid fa-user-astronaut text-neonCyan"></i> About</a>
+            <a href="#projects" class="py-2.5 px-4 hover:bg-cyan-500/10 rounded-xl text-slate-300 hover:text-neonCyan flex items-center gap-3"><i class="fa-solid fa-rocket text-neonPurple"></i> Projects</a>
+            <a href="#socials" class="py-2.5 px-4 hover:bg-cyan-500/10 rounded-xl text-slate-300 hover:text-neonCyan flex items-center gap-3"><i class="fa-solid fa-share-nodes text-neonPink"></i> Social Networks</a>
+            <a href="#gallery" class="py-2.5 px-4 hover:bg-cyan-500/10 rounded-xl text-slate-300 hover:text-neonCyan flex items-center gap-3"><i class="fa-solid fa-images text-neonGreen"></i> Picture Gallery</a>
+            <a href="#contact" class="py-2.5 px-4 hover:bg-cyan-500/10 rounded-xl text-slate-300 hover:text-neonCyan flex items-center gap-3"><i class="fa-solid fa-paper-plane text-cyan-400"></i> Contact</a>
+            <a href="https://wa.me/923294675242" target="_blank" class="py-3 px-4 bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 rounded-xl font-bold flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-base"></i> HASSAN OFC WHATSAPP
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="min-h-screen pt-32 pb-16 px-4 flex items-center justify-center">
+        <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Information Column -->
+            <div class="lg:col-span-7 flex flex-col items-start gap-6">
+                
+                <!-- Status Badge -->
+                <div class="px-4 py-1.5 bg-cyan-950/70 border border-cyan-500/40 rounded-full text-neonCyan text-xs font-mono font-semibold flex items-center gap-2 shadow-lg shadow-cyan-500/10">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span>🟢 AVAILABLE FOR PROJECTS</span>
+                </div>
+
+                <div class="space-y-3">
+                    <p class="text-slate-400 font-mono text-xs tracking-widest uppercase">// WEB DEVELOPMENT USER / FULL STACK DEVELOPER</p>
+                    <h1 class="text-4xl sm:text-6xl font-black font-orbitron text-white tracking-tight leading-none">
+                        HASSAN <span class="neon-text">UMAIR</span>
+                    </h1>
+                    
+                    <!-- Dynamic Typing Text -->
+                    <div class="h-10 flex items-center">
+                        <span class="text-lg sm:text-2xl font-bold text-neonCyan font-mono" id="typing-text"></span>
+                        <span class="w-2 h-6 bg-neonCyan inline-block ml-1 animate-pulse"></span>
+                    </div>
+                </div>
+
+                <p class="text-slate-300 text-base leading-relaxed max-w-xl glass-card p-4 rounded-2xl border-l-4 border-l-neonCyan font-mono">
+                    "I AM THE DEVELOPER OF WEBSITE'S" — Specializing in modern web toolkits, interactive utility web apps, and Vercel cloud deployments.
+                </p>
+
+                <!-- Action CTA Buttons -->
+                <div class="flex flex-wrap gap-4 pt-2 w-full sm:w-auto font-mono">
+                    <a href="#projects" class="cyber-btn px-6 py-3.5 rounded-xl font-bold text-white flex items-center justify-center gap-2 text-xs">
+                        <i class="fa-solid fa-cubes"></i> VIEW LIVE PROJECTS
+                    </a>
+                    <a href="https://wa.me/923294675242?text=Hello%20Hassan%20Umair!" target="_blank" class="px-6 py-3.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 border border-emerald-500/40 rounded-xl font-bold flex items-center justify-center gap-2 text-xs transition-all shadow-lg shadow-emerald-500/10">
+                        <i class="fa-brands fa-whatsapp text-base"></i> WHATSAPP ME
+                    </a>
+                    <a href="#gallery" class="px-6 py-3.5 glass-card hover:border-cyan-500/50 text-slate-200 font-bold rounded-xl flex items-center justify-center gap-2 text-xs transition-all">
+                        <i class="fa-solid fa-images text-neonCyan"></i> EXPLORE GALLERY
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Right Profile Picture Avatar with Glowing Ring -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="cyber-avatar-frame w-72 h-72 sm:w-80 sm:h-80 shadow-2xl">
+                    <div class="w-full h-full rounded-[2rem] overflow-hidden relative group bg-slate-900">
+                        <img src="https://i.ibb.co/8LbFsWq0/1792492990190.jpg" alt="Hassan Umair Main Picture" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyberDark via-transparent to-transparent opacity-85"></div>
+                        <div class="absolute bottom-4 left-4 right-4 p-3 glass-panel rounded-xl text-center border border-cyan-500/30 font-mono">
+                            <p class="text-xs font-bold text-neonCyan uppercase tracking-widest">HASSAN FF</p>
+                            <p class="text-[11px] text-slate-300 font-semibold">Web Development User</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT & ANIMATED STATS SECTION -->
+    <section id="about" class="py-20 px-4 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <p class="text-xs font-mono font-bold uppercase tracking-widest text-neonCyan mb-1">// SYSTEM BIOGRAPHY</p>
+            <h2 class="text-3xl sm:text-4xl font-black font-orbitron text-white">ABOUT <span class="neon-text">HASSAN UMAIR</span></h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+            
+            <!-- Long Bio Box -->
+            <div class="md:col-span-7 glass-card p-8 rounded-3xl relative overflow-hidden flex flex-col justify-between border-t-2 border-t-neonCyan space-y-6">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3 pb-3 border-b border-white/10">
+                        <span class="p-2.5 bg-purple-500/20 text-neonPurple rounded-xl text-lg"><i class="fa-solid fa-heart"></i></span>
+                        <h3 class="text-xl font-bold font-orbitron text-white">ASALAMUALAIKUM DEAR'S ❤️</h3>
+                    </div>
+                    
+                    <p class="text-slate-300 leading-relaxed text-base">
+                        I AM <strong class="text-neonCyan font-mono">HASSAN FF</strong>, THE OWNER OF THIS PORTFOLIO.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed text-base">
+                        I AM A <strong>15 YEARS OLD BOY</strong> CURRENTLY STUDYING IN <strong>CLASS 9th</strong>. Passionate about coding high-performance web tools, hosting cloud applications on Vercel, and crafting smooth user experiences.
+                    </p>
+                </div>
+
+                <!-- Skill Badges -->
+                <div class="pt-4 border-t border-white/10">
+                    <p class="text-xs font-mono font-bold text-slate-400 mb-3 uppercase tracking-wider">PRIMARY SKILLS & TECH STACK:</p>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs">
+                        <span class="px-3 py-1.5 bg-cyan-500/10 border border-cyan-500/30 text-neonCyan rounded-lg flex items-center gap-1.5"><i class="fa-brands fa-html5 text-orange-500"></i> HTML5</span>
+                        <span class="px-3 py-1.5 bg-blue-500/10 border border-blue-500/30 text-blue-400 rounded-lg flex items-center gap-1.5"><i class="fa-brands fa-css3-alt text-blue-500"></i> CSS3</span>
+                        <span class="px-3 py-1.5 bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 rounded-lg flex items-center gap-1.5"><i class="fa-brands fa-js text-yellow-500"></i> JavaScript</span>
+                        <span class="px-3 py-1.5 bg-purple-500/10 border border-purple-500/30 text-neonPurple rounded-lg flex items-center gap-1.5"><i class="fa-solid fa-cloud text-purple-400"></i> Vercel Deployment</span>
+                        <span class="px-3 py-1.5 bg-pink-500/10 border border-pink-500/30 text-neonPink rounded-lg flex items-center gap-1.5"><i class="fa-solid fa-plug text-pink-400"></i> API Integration</span>
+                        <span class="px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-lg flex items-center gap-1.5"><i class="fa-solid fa-toolbox text-emerald-400"></i> Web Toolkits</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Counters Grid -->
+            <div class="md:col-span-5 grid grid-cols-2 gap-4 font-mono">
+                
+                <div class="glass-card p-6 rounded-3xl flex flex-col justify-center items-center text-center border-t-2 border-t-neonCyan">
+                    <span class="p-3 bg-cyan-500/10 text-neonCyan rounded-2xl text-2xl mb-2"><i class="fa-solid fa-rocket"></i></span>
+                    <h4 class="text-3xl font-black text-white font-orbitron counter" data-target="3">0</h4>
+                    <p class="text-[11px] text-slate-400 mt-1 uppercase font-semibold">LIVE HOSTED APPS</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-3xl flex flex-col justify-center items-center text-center border-t-2 border-t-neonPurple">
+                    <span class="p-3 bg-purple-500/10 text-neonPurple rounded-2xl text-2xl mb-2"><i class="fa-solid fa-calendar-day"></i></span>
+                    <h4 class="text-3xl font-black text-white font-orbitron counter" data-target="15">0</h4>
+                    <p class="text-[11px] text-slate-400 mt-1 uppercase font-semibold">YEARS OLD</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-3xl flex flex-col justify-center items-center text-center border-t-2 border-t-neonPink">
+                    <span class="p-3 bg-pink-500/10 text-neonPink rounded-2xl text-2xl mb-2"><i class="fa-solid fa-graduation-cap"></i></span>
+                    <h4 class="text-xl font-black text-white font-orbitron">CLASS 9th</h4>
+                    <p class="text-[11px] text-slate-400 mt-1 uppercase font-semibold">STUDENT DEV</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-3xl flex flex-col justify-center items-center text-center border-t-2 border-t-neonGreen">
+                    <span class="p-3 bg-emerald-500/10 text-emerald-400 rounded-2xl text-2xl mb-2"><i class="fa-solid fa-bolt"></i></span>
+                    <h4 class="text-3xl font-black text-white font-orbitron counter" data-target="100">0</h4>
+                    <p class="text-[11px] text-slate-400 mt-1 uppercase font-semibold">% PASSION</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LIVE HOSTED PROJECTS SHOWCASE -->
+    <section id="projects" class="py-20 px-4 max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+            <p class="text-xs font-mono font-bold uppercase tracking-widest text-neonPurple mb-1">// CLOUD DEPLOYMENTS</p>
+            <h2 class="text-3xl sm:text-4xl font-black font-orbitron text-white">LIVE HOSTED <span class="neon-text">PROJECTS</span></h2>
+            <p class="text-slate-400 text-xs font-mono mt-2">Active hosted web applications and downloaders</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Project 1 -->
+            <div class="glass-card rounded-3xl p-6 flex flex-col justify-between border-t-2 border-t-neonCyan relative group">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="p-3 bg-cyan-500/10 border border-cyan-500/30 text-neonCyan rounded-2xl text-xl">
+                            <i class="fa-solid fa-toolbox"></i>
+                        </span>
+                        <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono font-bold rounded-full flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> ONLINE
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold font-orbitron text-white mb-2 group-hover:text-neonCyan transition-colors">HASSAN MAIN TOOLKIT</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed font-mono mb-6">
+                        Comprehensive multi-tool web application built for daily utility, user efficiency, and developer productivity.
+                    </p>
+                </div>
+                
+                <a href="https://toolkit.page.gd/t/hassan-2nd-toolkit" target="_blank" class="cyber-btn py-3 px-4 rounded-xl font-mono font-bold text-xs text-center text-white flex items-center justify-center gap-2 w-full">
+                    <span>VISIT TOOLKIT</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="glass-card rounded-3xl p-6 flex flex-col justify-between border-t-2 border-t-neonPurple relative group">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="p-3 bg-purple-500/10 border border-purple-500/30 text-neonPurple rounded-2xl text-xl">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </span>
+                        <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono font-bold rounded-full flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> VERCEL
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold font-orbitron text-white mb-2 group-hover:text-neonPurple transition-colors">HASSAN 2ND TOOLKIT</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed font-mono mb-6">
+                        Next-gen web toolkit hosted on high-performance Vercel cloud infrastructure for ultra-fast response.
+                    </p>
+                </div>
+                
+                <a href="https://hassan-toolkit-pro.vercel.app" target="_blank" class="cyber-btn py-3 px-4 rounded-xl font-mono font-bold text-xs text-center text-white flex items-center justify-center gap-2 w-full">
+                    <span>VISIT PRO TOOLKIT</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="glass-card rounded-3xl p-6 flex flex-col justify-between border-t-2 border-t-neonPink relative group">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="p-3 bg-pink-500/10 border border-pink-500/30 text-neonPink rounded-2xl text-xl">
+                            <i class="fa-solid fa-cloud-arrow-down"></i>
+                        </span>
+                        <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono font-bold rounded-full flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> VERCEL
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold font-orbitron text-white mb-2 group-hover:text-neonPink transition-colors">TIKTOK DOWNLOADER</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed font-mono mb-6">
+                        High-speed TikTok video downloader web application. Download videos seamlessly without watermarks.
+                    </p>
+                </div>
+                
+                <a href="https://hassan-ttvd.vercel.app" target="_blank" class="cyber-btn py-3 px-4 rounded-xl font-mono font-bold text-xs text-center text-white flex items-center justify-center gap-2 w-full">
+                    <span>LAUNCH DOWNLOADER</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LIVE TERMINAL STACK WIDGET -->
+    <section class="py-8 px-4 max-w-6xl mx-auto">
+        <div class="glass-card rounded-3xl p-6 font-mono text-xs border border-cyan-500/30 shadow-2xl">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                    <span class="text-slate-400 ml-2 text-[11px]">hassan@developer-terminal:~</span>
+                </div>
+                <span class="text-neonCyan"><i class="fa-solid fa-terminal"></i> BASH</span>
+            </div>
+            <div class="space-y-2 text-slate-300">
+                <p><span class="text-neonGreen">hassan@portfolio:~$</span> fetch-developer-status --user "HASSAN UMAIR"</p>
+                <p class="text-slate-400">[SYSTEM]: Querying status... Author: <strong class="text-white">HASSAN FF</strong> | Status: <strong class="text-emerald-400">ACTIVE & READY</strong></p>
+                <p><span class="text-neonGreen">hassan@portfolio:~$</span> list-technologies</p>
+                <p class="text-neonCyan">&gt; HTML5, CSS3, JS (ES6+), Tailwind, Vercel, REST APIs, Git, Responsive UI</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL MEDIA & TELEGRAM HUB -->
+    <section id="socials" class="py-20 px-4 max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+            <p class="text-xs font-mono font-bold uppercase tracking-widest text-neonPink mb-1">// NETWORK CONNECTIONS</p>
+            <h2 class="text-3xl sm:text-4xl font-black font-orbitron text-white">SOCIAL MEDIA & <span class="neon-text">TELEGRAM HUB</span></h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Telegram Official Box -->
+            <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-6 border-l-4 border-l-sky-400">
+                <div class="flex items-center gap-3">
+                    <span class="p-3 bg-sky-500/20 text-sky-400 rounded-2xl text-2xl"><i class="fa-brands fa-telegram"></i></span>
+                    <div>
+                        <h3 class="text-xl font-bold font-orbitron text-white">TELEGRAM CHANNELS</h3>
+                        <p class="text-xs text-slate-400 font-mono">Official Telegram announcements & updates</p>
+                    </div>
+                </div>
+
+                <div class="space-y-3 font-mono">
+                    <a href="https://t.me/hassanff01" target="_blank" class="p-4 bg-slate-900/80 hover:bg-sky-500/20 border border-white/10 hover:border-sky-400 rounded-2xl flex items-center justify-between transition-all group">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-brands fa-telegram text-sky-400 text-xl group-hover:scale-110 transition-transform"></i>
+                            <div>
+                                <p class="text-sm font-bold text-white">HASSAN TG OFC</p>
+                                <p class="text-xs text-slate-400">@hassanff01</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-bold text-sky-400 flex items-center gap-1">JOIN <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    </a>
+
+                    <a href="https://t.me/Hassan_1M_FF" target="_blank" class="p-4 bg-slate-900/80 hover:bg-sky-500/20 border border-white/10 hover:border-sky-400 rounded-2xl flex items-center justify-between transition-all group">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-brands fa-telegram text-sky-400 text-xl group-hover:scale-110 transition-transform"></i>
+                            <div>
+                                <p class="text-sm font-bold text-white">HASSAN 2ND TG OFC</p>
+                                <p class="text-xs text-slate-400">@Hassan_1M_FF</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-bold text-sky-400 flex items-center gap-1">JOIN <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Branded Social Platforms Grid -->
+            <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-6 border-l-4 border-l-neonPink">
+                <div class="flex items-center gap-3">
+                    <span class="p-3 bg-pink-500/20 text-neonPink rounded-2xl text-2xl"><i class="fa-solid fa-share-nodes"></i></span>
+                    <div>
+                        <h3 class="text-xl font-bold font-orbitron text-white">SOCIAL PROFILES</h3>
+                        <p class="text-xs text-slate-400 font-mono">Connect with Hassan on social media</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 font-mono text-xs">
+                    
+                    <a href="https://www.tiktok.com/@maryo3211" target="_blank" class="p-3.5 bg-slate-900/80 hover:bg-pink-500/20 border border-white/10 hover:border-pink-500 rounded-2xl flex flex-col justify-between transition-all group">
+                        <i class="fa-brands fa-tiktok text-xl text-pink-400 mb-2 group-hover:scale-110 transition-transform"></i>
+                        <div>
+                            <p class="font-bold text-white">TIKTOK</p>
+                            <p class="text-[11px] text-slate-400">@maryo3211</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.youtube.com/@vkdongaming678" target="_blank" class="p-3.5 bg-slate-900/80 hover:bg-red-500/20 border border-white/10 hover:border-red-500 rounded-2xl flex flex-col justify-between transition-all group">
+                        <i class="fa-brands fa-youtube text-xl text-red-500 mb-2 group-hover:scale-110 transition-transform"></i>
+                        <div>
+                            <p class="font-bold text-white">YOUTUBE</p>
+                            <p class="text-[11px] text-slate-400">@vkdongaming678</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/end_hassan_ff" target="_blank" class="p-3.5 bg-slate-900/80 hover:bg-purple-500/20 border border-white/10 hover:border-purple-500 rounded-2xl flex flex-col justify-between transition-all group">
+                        <i class="fa-brands fa-instagram text-xl text-purple-400 mb-2 group-hover:scale-110 transition-transform"></i>
+                        <div>
+                            <p class="font-bold text-white">INSTAGRAM</p>
+                            <p class="text-[11px] text-slate-400">@end_hassan_ff</p>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/hassan-ff-max" target="_blank" class="p-3.5 bg-slate-900/80 hover:bg-cyan-500/20 border border-white/10 hover:border-neonCyan rounded-2xl flex flex-col justify-between transition-all group">
+                        <i class="fa-brands fa-github text-xl text-neonCyan mb-2 group-hover:scale-110 transition-transform"></i>
+                        <div>
+                            <p class="font-bold text-white">GITHUB</p>
+                            <p class="text-[11px] text-slate-400">hassan-ff-max</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PICTURES GALLERY SHOWCASE -->
+    <section id="gallery" class="py-20 px-4 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <p class="text-xs font-mono font-bold uppercase tracking-widest text-neonGreen mb-1">// VISUAL MEDIA ARCHIVE</p>
+            <h2 class="text-3xl sm:text-4xl font-black font-orbitron text-white">PICTURES <span class="neon-text">GALLERY</span></h2>
+            <p class="text-slate-400 text-xs font-mono mt-2">Click any picture for interactive full screen lightbox with next/prev navigation</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            
+            <div class="glass-card rounded-2xl overflow-hidden cursor-pointer group relative h-60" onclick="openLightbox(0)">
+                <img src="https://i.ibb.co/8LbFsWq0/1792492990190.jpg" alt="Gallery Photo 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-cyberDark/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <i class="fa-solid fa-expand text-2xl text-neonCyan"></i>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl overflow-hidden cursor-pointer group relative h-60" onclick="openLightbox(1)">
+                <img src="https://i.ibb.co/21qmyHBJ/jawadmd.jpg" alt="Gallery Photo 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-cyberDark/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <i class="fa-solid fa-expand text-2xl text-neonCyan"></i>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl overflow-hidden cursor-pointer group relative h-60" onclick="openLightbox(2)">
+                <img src="https://i.ibb.co/Ng9PdyMK/jawadmd.jpg" alt="Gallery Photo 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-cyberDark/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <i class="fa-solid fa-expand text-2xl text-neonCyan"></i>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl overflow-hidden cursor-pointer group relative h-60" onclick="openLightbox(3)">
+                <img src="https://i.postimg.cc/nLx4FJKr/1000005452.png" alt="Gallery Photo 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-cyberDark/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <i class="fa-solid fa-expand text-2xl text-neonCyan"></i>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl overflow-hidden cursor-pointer group relative h-60 col-span-2 lg:col-span-1" onclick="openLightbox(4)">
+                <img src="https://files.catbox.moe/lyj69b.jpg" alt="Gallery Photo 5" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-cyberDark/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <i class="fa-solid fa-expand text-2xl text-neonCyan"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INTERACTIVE LIGHTBOX MODAL WITH NAVIGATION -->
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center p-4 backdrop-blur-2xl">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-neonPink text-3xl font-mono p-2 z-10 transition-colors">&times;</button>
+        
+        <button onclick="prevLightboxImage()" class="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-slate-900/80 hover:bg-neonCyan hover:text-black border border-white/20 text-white rounded-full text-lg z-10 transition-all">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        
+        <img id="lightbox-img" src="" alt="Full view preview" class="max-w-full max-h-[85vh] rounded-2xl border border-neonCyan/40 shadow-2xl">
+        
+        <button onclick="nextLightboxImage()" class="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-slate-900/80 hover:bg-neonCyan hover:text-black border border-white/20 text-white rounded-full text-lg z-10 transition-all">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
     </div>
 
-    <!-- Main Content Container -->
-    <div class="relative z-10 flex flex-col min-h-screen">
-
-        <!-- HEADER / BRANDING -->
-        <header class="w-full py-4 sm:py-6 px-4 md:px-12 border-b border-amber-500/20 backdrop-blur-md bg-slate-950/60 sticky top-0 z-40">
-            <div class="max-w-7xl mx-auto flex items-center justify-between">
-                <!-- Brand Logo & Name -->
-                <a href="#" class="flex items-center gap-3">
-                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-amber-600 to-yellow-300 p-[2px] shadow-lg shadow-amber-500/20">
-                        <img src="https://i.ibb.co/8LbFsWq0/1792492990190.jpg" alt="Logo" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/100x100/111/D4AF37?text=H'">
-                    </div>
-                    <span class="font-cinzel text-lg sm:text-2xl font-black tracking-wider gold-text uppercase">
-                        HASSAN OFC
-                    </span>
-                </a>
-
-                <!-- Desktop Navigation -->
-                <nav class="hidden lg:flex items-center gap-6 font-montserrat font-bold text-xs sm:text-sm tracking-wider">
-                    <a href="#quotes" class="hover:text-amber-400 transition-colors uppercase">Quotes</a>
-                    <a href="#about" class="hover:text-amber-400 transition-colors uppercase">About</a>
-                    <a href="#projects" class="hover:text-amber-400 transition-colors uppercase">Projects</a>
-                    <a href="#socials" class="hover:text-amber-400 transition-colors uppercase">Socials</a>
-                    <a href="#gallery" class="hover:text-amber-400 transition-colors uppercase">Gallery</a>
-                    <a href="#contact" class="hover:text-amber-400 transition-colors uppercase">Contact</a>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <button onclick="toggleMobileMenu()" class="lg:hidden text-amber-400 text-2xl p-2 focus:outline-none" aria-label="Toggle Navigation">
-                    <i id="menu-icon" class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-
-            <!-- Mobile Drawer Menu -->
-            <div id="mobile-menu" class="hidden lg:hidden pt-4 pb-2 border-t border-amber-500/10 mt-3">
-                <nav class="flex flex-col gap-3 font-montserrat font-bold text-sm text-center">
-                    <a href="#quotes" onclick="toggleMobileMenu()" class="py-2 hover:bg-amber-500/10 rounded-lg text-slate-200">Quotes</a>
-                    <a href="#about" onclick="toggleMobileMenu()" class="py-2 hover:bg-amber-500/10 rounded-lg text-slate-200">About Me</a>
-                    <a href="#projects" onclick="toggleMobileMenu()" class="py-2 hover:bg-amber-500/10 rounded-lg text-slate-200">Projects</a>
-                    <a href="#socials" onclick="toggleMobileMenu()" class="py-2 hover:bg-amber-500/10 rounded-lg text-slate-200">Socials</a>
-                    <a href="#gallery" onclick="toggleMobileMenu()" class="py-2 hover:bg-amber-500/10 rounded-lg text-slate-200">Gallery</a>
-                    <a href="#contact" onclick="toggleMobileMenu()" class="py-2 hover:bg-amber-500/10 rounded-lg text-slate-200">Contact</a>
-                </nav>
-            </div>
-        </header>
-
-        <!-- HERO & GOLDEN WORDS CAROUSEL SECTION -->
-        <section id="quotes" class="py-12 sm:py-20 px-4 max-w-5xl mx-auto text-center w-full">
-            <div class="inline-block px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold tracking-widest uppercase mb-4 sm:mb-6">
-                ✨ Inspiring Golden Words
-            </div>
+    <!-- DIRECT CONTACT SECTION -->
+    <section id="contact" class="py-20 px-4 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <h1 class="font-cinzel text-2xl sm:text-5xl lg:text-6xl font-extrabold gold-text mb-6 sm:mb-8 leading-tight">
-                GOLDEN WORDS OF LIFE
-            </h1>
-
-            <!-- Interactive Typewriter Quotes Card -->
-            <div class="relative bg-slate-900/80 backdrop-blur-md border border-amber-500/30 rounded-2xl p-5 sm:p-10 gold-glow text-center min-h-[280px] sm:min-h-[300px] flex flex-col justify-between items-center my-4 sm:my-6">
-                
-                <!-- Decorative Quote Icon -->
-                <i class="fa-solid fa-quote-left text-2xl sm:text-4xl text-amber-500/30 mb-2"></i>
-
-                <!-- Quote Text Container -->
-                <div class="w-full flex-grow flex items-center justify-center my-3 px-2">
-                    <p id="typewriter-text" class="font-cinzel text-base sm:text-2xl lg:text-3xl font-bold text-amber-100 leading-relaxed sm:leading-loose typewriter-cursor">
-                        <!-- Typewriter JS output -->
-                    </p>
+            <div class="lg:col-span-6 glass-card p-8 rounded-3xl space-y-6 border-t-2 border-t-emerald-400">
+                <div>
+                    <p class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest">// REACH OUT DIRECTLY</p>
+                    <h2 class="text-3xl font-black font-orbitron text-white">DIRECT CONTACT</h2>
+                    <p class="text-slate-400 text-xs font-mono mt-1">Connect directly with Hassan via WhatsApp or Email.</p>
                 </div>
 
-                <div id="quote-option-badge" class="mt-2 text-[10px] sm:text-xs font-montserrat font-extrabold tracking-widest text-amber-400/80 uppercase">
-                    OPTION 1
-                </div>
-
-                <!-- Carousel Controls & Copy Action -->
-                <div class="w-full flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 pt-4 border-t border-amber-500/10">
+                <div class="space-y-4 font-mono">
                     
-                    <!-- Prev / Next Controls -->
-                    <div class="flex items-center gap-2 order-2 sm:order-1">
-                        <button onclick="prevQuote()" class="p-2.5 rounded-full bg-slate-800 border border-amber-500/30 text-amber-300 hover:bg-amber-500/20 active:scale-95 transition-all text-xs sm:text-sm">
-                            <i class="fa-solid fa-chevron-left px-1"></i>
-                        </button>
-                        <span id="quote-counter" class="text-xs font-bold text-slate-400 px-2">1 / 3</span>
-                        <button onclick="nextQuoteManual()" class="p-2.5 rounded-full bg-slate-800 border border-amber-500/30 text-amber-300 hover:bg-amber-500/20 active:scale-95 transition-all text-xs sm:text-sm">
-                            <i class="fa-solid fa-chevron-right px-1"></i>
-                        </button>
-                    </div>
-
-                    <!-- Option Switcher Pills -->
-                    <div class="flex flex-wrap justify-center gap-1.5 sm:gap-2 order-1 sm:order-2">
-                        <button onclick="selectQuote(0)" id="btn-0" class="quote-btn px-3 py-1.5 rounded-full border border-amber-500/30 text-[11px] sm:text-xs font-bold transition-all bg-amber-500/30 text-amber-300">Option 1</button>
-                        <button onclick="selectQuote(1)" id="btn-1" class="quote-btn px-3 py-1.5 rounded-full border border-amber-500/30 text-[11px] sm:text-xs font-bold transition-all bg-slate-800 text-slate-300">Option 2</button>
-                        <button onclick="selectQuote(2)" id="btn-2" class="quote-btn px-3 py-1.5 rounded-full border border-amber-500/30 text-[11px] sm:text-xs font-bold transition-all bg-slate-800 text-slate-300">Option 3</button>
-                    </div>
-
-                    <!-- Copy Quote Button -->
-                    <button onclick="copyCurrentQuote()" class="w-full sm:w-auto px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:brightness-110 active:scale-95 transition-all order-3">
-                        <i class="fa-solid fa-copy"></i> Copy Quote
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROFILE & ABOUT ME SECTION -->
-        <section id="about" class="py-12 sm:py-16 px-4 max-w-4xl mx-auto w-full">
-            <div class="bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-amber-500/20 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
-                
-                <!-- Profile Header Card -->
-                <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-10 mb-8 pb-8 border-b border-amber-500/15">
-                    
-                    <!-- Profile Picture -->
-                    <div class="relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-500 animate-glow-pulse"></div>
-                        <div class="relative w-32 h-32 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-amber-400/80 gold-glow">
-                            <img src="https://i.ibb.co/8LbFsWq0/1792492990190.jpg" alt="Hassan OFC Profile Picture" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/300x300/111/D4AF37?text=HASSAN'">
+                    <div class="p-4 bg-slate-900/80 rounded-2xl border border-emerald-500/30 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="p-3 bg-emerald-500/20 text-emerald-400 rounded-xl text-xl"><i class="fa-brands fa-whatsapp"></i></span>
+                            <div>
+                                <p class="text-xs text-slate-400">HASSAN OFC NUMBER</p>
+                                <p class="text-sm font-bold text-white">+92 329 4675242</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="copyToClipboard('+923294675242', 'WhatsApp Number')" class="p-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs transition-colors" title="Copy Number">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                            <a href="https://wa.me/923294675242" target="_blank" class="p-2.5 bg-emerald-500 text-black font-bold rounded-xl text-xs hover:bg-emerald-400 transition-colors">
+                                CHAT
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Profile Info -->
-                    <div class="text-center sm:text-left flex-1">
-                        <span class="text-amber-400 font-montserrat font-bold text-xs tracking-widest uppercase block mb-1">
-                            Official Developer & Creator
-                        </span>
-                        <h2 class="font-cinzel text-2xl sm:text-4xl font-extrabold gold-text mb-3">
-                            HASSAN OFC PORTFOLIO
-                        </h2>
-                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-medium">
-                            Creating crazy type free websites and web applications for everyone with aesthetic modern visuals.
-                        </p>
+                    <div class="p-4 bg-slate-900/80 rounded-2xl border border-cyan-500/30 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="p-3 bg-cyan-500/20 text-neonCyan rounded-xl text-xl"><i class="fa-regular fa-envelope"></i></span>
+                            <div class="overflow-hidden">
+                                <p class="text-xs text-slate-400">OFFICIAL EMAIL</p>
+                                <p class="text-xs font-bold text-white truncate max-w-[180px] sm:max-w-none">ansarbubble43@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="copyToClipboard('ansarbubble43@gmail.com', 'Email Address')" class="p-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs transition-colors" title="Copy Email">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                            <a href="mailto:ansarbubble43@gmail.com" class="p-2.5 bg-neonCyan text-black font-bold rounded-xl text-xs hover:bg-cyan-300 transition-colors">
+                                MAIL
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Custom About Message Box -->
-                <div class="bg-slate-950/70 border border-amber-500/30 rounded-2xl p-5 sm:p-8 text-center sm:text-left relative">
-                    <div class="absolute top-3 right-4 text-amber-500/20 text-3xl">
-                        <i class="fa-solid fa-heart"></i>
-                    </div>
-                    <h3 class="text-amber-300 font-cinzel text-lg sm:text-xl font-bold mb-4 uppercase flex items-center justify-center sm:justify-start gap-2">
-                        <i class="fa-solid fa-bullhorn text-amber-400 text-sm"></i> Developer Message
-                    </h3>
-                    <div class="space-y-3 font-montserrat text-xs sm:text-sm leading-relaxed text-slate-200">
-                        <p class="font-bold text-amber-200 text-sm sm:text-base">
-                            HELLO DEAR'S ASALAMUALAIKUM ❤️
-                        </p>
-                        <p>
-                            I AM <span class="text-amber-400 font-bold">HASSAN FF</span> THE DEVELOPER OR CREATOR OF WEBSITE'S
-                        </p>
-                        <p>
-                            I MAKE SOME CRAZY TYPE WEBSITE'S FREE FOR EVERYONE
-                        </p>
-                        <p class="bg-amber-500/10 p-3 rounded-xl border border-amber-500/20 text-amber-300 font-semibold my-2">
-                            IF ANYBODY WANT TO MAKE HIS OWN WEBSITE FREE SO CONTACT ME THROUGH WA & MAIL
-                        </p>
-                        <p class="font-bold text-amber-200 pt-2">
-                            ALLAH HAFIZ ❤️ TAKE CARE 😘
-                        </p>
-                    </div>
                 </div>
-
             </div>
-        </section>
 
-        <!-- PROJECTS SECTION -->
-        <section id="projects" class="py-12 sm:py-16 px-4 max-w-6xl mx-auto w-full">
-            <div class="text-center mb-10">
-                <span class="text-amber-400 font-montserrat font-bold text-xs tracking-widest uppercase block mb-1">
-                    Featured Work
-                </span>
-                <h2 class="font-cinzel text-2xl sm:text-4xl font-extrabold gold-text mb-2">
-                    MY CRAZY PROJECTS
-                </h2>
-                <p class="text-slate-400 text-xs sm:text-sm font-semibold">
-                    Explore web tools and platforms created by Hassan
+            <!-- Instant WhatsApp Message Launcher -->
+            <div class="lg:col-span-6 glass-card p-8 rounded-3xl space-y-4 border-t-2 border-t-neonCyan">
+                <h3 class="text-xl font-bold font-orbitron text-white flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane text-neonCyan"></i> INSTANT MESSAGE LAUNCHER
+                </h3>
+                <p class="text-xs text-slate-400 font-mono">
+                    Type your message to send an instant pre-filled WhatsApp message directly to Hassan.
                 </p>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                <!-- Project 1: Hassan Toolkit -->
-                <div class="bg-slate-900/70 border border-amber-500/30 rounded-2xl p-6 flex flex-col justify-between gold-glow-hover">
+                <form onsubmit="sendWhatsAppForm(event)" class="space-y-4 font-mono text-xs">
                     <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-300 text-xl font-black">
-                                <i class="fa-solid fa-toolbox"></i>
-                            </div>
-                            <span class="text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 font-bold">
-                                Web Tool
-                            </span>
-                        </div>
-                        <h3 class="font-cinzel text-xl sm:text-2xl font-bold gold-text mb-2">
-                            HASSAN TOOLKIT
-                        </h3>
-                        <p class="text-xs text-slate-400 font-medium mb-4">
-                            Official multi-purpose toolkit website.
-                        </p>
-                        
-                        <div class="space-y-2 mb-6">
-                            <div class="flex items-start gap-2 text-xs text-slate-300">
-                                <i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
-                                <span>DOWNLOAD CRAZY THINGS</span>
-                            </div>
-                            <div class="flex items-start gap-2 text-xs text-slate-300">
-                                <i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
-                                <span>DOWNLOAD FREE FIRE CHEATS ALSO</span>
-                            </div>
-                            <div class="flex items-start gap-2 text-xs text-slate-300">
-                                <i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
-                                <span>CHECK BY CLICKING ON VISIT BUTTON</span>
-                            </div>
-                        </div>
+                        <label class="block text-slate-400 mb-1">YOUR NAME</label>
+                        <input type="text" id="sender-name" required placeholder="Enter your full name" class="w-full px-4 py-3 bg-slate-900 border border-white/10 rounded-xl text-white focus:outline-none focus:border-neonCyan transition-colors">
                     </div>
-
-                    <a href="https://hassan-toolkit-pro.vercel.app" target="_blank" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 text-slate-950 font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:brightness-110 active:scale-95 transition-all">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Hassan Toolkit
-                    </a>
-                </div>
-
-                <!-- Project 2: Hassan TikTok Downloader -->
-                <div class="bg-slate-900/70 border border-amber-500/30 rounded-2xl p-6 flex flex-col justify-between gold-glow-hover">
                     <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-300 text-xl font-black">
-                                <i class="fa-solid fa-cloud-arrow-down"></i>
-                            </div>
-                            <span class="text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 font-bold">
-                                Video Downloader
-                            </span>
-                        </div>
-                        <h3 class="font-cinzel text-xl sm:text-2xl font-bold gold-text mb-2">
-                            HASSAN TIKTOK DOWNLOADER
-                        </h3>
-                        <p class="text-xs text-slate-400 font-medium mb-4">
-                            Fast & HD TikTok video downloader platform.
-                        </p>
-                        
-                        <div class="space-y-2 mb-6">
-                            <div class="flex items-start gap-2 text-xs text-slate-300">
-                                <i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
-                                <span>DOWNLOAD WITHOUT WATERMARK</span>
-                            </div>
-                            <div class="flex items-start gap-2 text-xs text-slate-300">
-                                <i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
-                                <span>DOWNLOAD WITH WATERMARK</span>
-                            </div>
-                            <div class="flex items-start gap-2 text-xs text-slate-300">
-                                <i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
-                                <span>DOWNLOAD IN HD QUALITY</span>
-                            </div>
-                            <div class="flex items-start gap-2 text-xs text-slate-300">
-                                <i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
-                                <span>DOWNLOAD AUDIO / MP3 ALSO</span>
-                            </div>
-                        </div>
+                        <label class="block text-slate-400 mb-1">YOUR MESSAGE</label>
+                        <textarea id="sender-msg" rows="3" required placeholder="Write your message here..." class="w-full px-4 py-3 bg-slate-900 border border-white/10 rounded-xl text-white focus:outline-none focus:border-neonCyan transition-colors"></textarea>
                     </div>
-
-                    <a href="https://hassan-ttvd.vercel.app" target="_blank" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 text-slate-950 font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:brightness-110 active:scale-95 transition-all">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit TikTok Downloader
-                    </a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SOCIAL MEDIA SECTION -->
-        <section id="socials" class="py-12 sm:py-16 px-4 max-w-6xl mx-auto w-full">
-            <div class="text-center mb-10">
-                <h2 class="font-cinzel text-2xl sm:text-4xl font-extrabold gold-text mb-2">
-                    CONNECT WITH ME
-                </h2>
-                <p class="text-slate-400 text-xs sm:text-sm font-semibold">
-                    Follow my official social media channels
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                
-                <!-- TikTok Card -->
-                <a href="https://tiktok.com/@maryo3211" target="_blank" class="group bg-slate-900/60 border border-amber-500/20 hover:border-amber-400 p-5 sm:p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 bg-slate-900/80 gold-glow-hover">
-                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-slate-900 to-black border-2 border-amber-400 flex items-center justify-center text-2xl text-amber-300 mb-3 group-hover:scale-110 transition-transform">
-                        <i class="fa-brands fa-tiktok"></i>
-                    </div>
-                    <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-1">TikTok</span>
-                    <h3 class="font-montserrat font-extrabold text-white text-sm mb-1">HASSAN OFC ACCOUNT</h3>
-                    <span class="text-xs font-medium text-slate-400 group-hover:text-amber-300 transition-colors">@maryo3211</span>
-                </a>
-
-                <!-- YouTube Card -->
-                <a href="https://youtube.com/@vkdongaming678" target="_blank" class="group bg-slate-900/60 border border-amber-500/20 hover:border-amber-400 p-5 sm:p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 bg-slate-900/80 gold-glow-hover">
-                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-slate-900 to-red-950 border-2 border-amber-400 flex items-center justify-center text-2xl text-red-500 mb-3 group-hover:scale-110 transition-transform">
-                        <i class="fa-brands fa-youtube"></i>
-                    </div>
-                    <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-1">YouTube</span>
-                    <h3 class="font-montserrat font-extrabold text-white text-sm mb-1">HASSAN OFC CHANNEL</h3>
-                    <span class="text-xs font-medium text-slate-400 group-hover:text-amber-300 transition-colors">@vkdongaming678</span>
-                </a>
-
-                <!-- Instagram Card -->
-                <a href="https://instagram.com/end_hassan_ff" target="_blank" class="group bg-slate-900/60 border border-amber-500/20 hover:border-amber-400 p-5 sm:p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 bg-slate-900/80 gold-glow-hover">
-                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-purple-900 to-pink-900 border-2 border-amber-400 flex items-center justify-center text-2xl text-pink-400 mb-3 group-hover:scale-110 transition-transform">
-                        <i class="fa-brands fa-instagram"></i>
-                    </div>
-                    <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-1">Instagram</span>
-                    <h3 class="font-montserrat font-extrabold text-white text-sm mb-1">HASSAN OFC ACCOUNT</h3>
-                    <span class="text-xs font-medium text-slate-400 group-hover:text-amber-300 transition-colors">@end_hassan_ff</span>
-                </a>
-
-                <!-- GitHub Card -->
-                <a href="https://github.com/hassan-ff-max" target="_blank" class="group bg-slate-900/60 border border-amber-500/20 hover:border-amber-400 p-5 sm:p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 bg-slate-900/80 gold-glow-hover">
-                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-slate-800 to-slate-950 border-2 border-amber-400 flex items-center justify-center text-2xl text-slate-200 mb-3 group-hover:scale-110 transition-transform">
-                        <i class="fa-brands fa-github"></i>
-                    </div>
-                    <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-1">GitHub</span>
-                    <h3 class="font-montserrat font-extrabold text-white text-sm mb-1">HASSAN OFC ACCOUNT</h3>
-                    <span class="text-xs font-medium text-slate-400 group-hover:text-amber-300 transition-colors">hassan-ff-max</span>
-                </a>
-
-            </div>
-        </section>
-
-        <!-- PHOTO GALLERY SECTION -->
-        <section id="gallery" class="py-12 sm:py-16 px-4 max-w-6xl mx-auto w-full">
-            <div class="text-center mb-10">
-                <h2 class="font-cinzel text-2xl sm:text-4xl font-extrabold gold-text mb-2">
-                    PHOTO GALLERY
-                </h2>
-                <p class="text-slate-400 text-xs sm:text-sm font-semibold">
-                    Tap any image to view in high resolution
-                </p>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
-                
-                <!-- Gallery Image 1 -->
-                <div onclick="openLightbox('https://i.ibb.co/8LbFsWq0/1792492990190.jpg')" class="group relative aspect-square rounded-2xl overflow-hidden border-2 border-amber-500/30 cursor-pointer gold-glow-hover">
-                    <img src="https://i.ibb.co/8LbFsWq0/1792492990190.jpg" alt="Gallery Image 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/111/D4AF37?text=Image+1'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                        <span class="text-amber-300 font-bold text-xs flex items-center gap-1.5">
-                            <i class="fa-solid fa-expand"></i> View
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Gallery Image 2 -->
-                <div onclick="openLightbox('https://i.ibb.co/21qmyHBJ/jawadmd.jpg')" class="group relative aspect-square rounded-2xl overflow-hidden border-2 border-amber-500/30 cursor-pointer gold-glow-hover">
-                    <img src="https://i.ibb.co/21qmyHBJ/jawadmd.jpg" alt="Gallery Image 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/111/D4AF37?text=Image+2'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                        <span class="text-amber-300 font-bold text-xs flex items-center gap-1.5">
-                            <i class="fa-solid fa-expand"></i> View
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Gallery Image 3 -->
-                <div onclick="openLightbox('https://i.ibb.co/Ng9PdyMK/jawadmd.jpg')" class="group relative aspect-square rounded-2xl overflow-hidden border-2 border-amber-500/30 cursor-pointer gold-glow-hover">
-                    <img src="https://i.ibb.co/Ng9PdyMK/jawadmd.jpg" alt="Gallery Image 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/111/D4AF37?text=Image+3'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                        <span class="text-amber-300 font-bold text-xs flex items-center gap-1.5">
-                            <i class="fa-solid fa-expand"></i> View
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Gallery Image 4 -->
-                <div onclick="openLightbox('https://i.postimg.cc/nLx4FJKr/1000005452.png')" class="group relative aspect-square rounded-2xl overflow-hidden border-2 border-amber-500/30 cursor-pointer gold-glow-hover">
-                    <img src="https://i.postimg.cc/nLx4FJKr/1000005452.png" alt="Gallery Image 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/111/D4AF37?text=Image+4'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                        <span class="text-amber-300 font-bold text-xs flex items-center gap-1.5">
-                            <i class="fa-solid fa-expand"></i> View
-                        </span>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- CONTACT ME SECTION -->
-        <section id="contact" class="py-12 sm:py-16 px-4 max-w-4xl mx-auto w-full">
-            <div class="bg-slate-900/80 border border-amber-500/30 rounded-3xl p-6 sm:p-10 gold-glow">
-                
-                <div class="text-center mb-8">
-                    <h2 class="font-cinzel text-2xl sm:text-4xl font-extrabold gold-text mb-2">
-                        CONTACT ME
-                    </h2>
-                    <p class="text-slate-400 text-xs sm:text-sm font-semibold">
-                        Get in touch for free website requests & inquiries
-                    </p>
-                </div>
-
-                <!-- Quick Action Contact Buttons -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                    
-                    <!-- WhatsApp Direct Link -->
-                    <a href="https://wa.me/923294675242" target="_blank" class="p-4 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 hover:border-emerald-400 flex items-center gap-4 transition-all hover:bg-emerald-900/40">
-                        <div class="w-12 h-12 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-2xl font-bold">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block">HASSAN OFC WA</span>
-                            <span class="text-sm font-black text-white">+923294675242</span>
-                        </div>
-                    </a>
-
-                    <!-- Direct Email Link -->
-                    <a href="mailto:ansarbubble43@gmail.com" class="p-4 rounded-2xl bg-amber-950/60 border border-amber-500/40 hover:border-amber-400 flex items-center gap-4 transition-all hover:bg-amber-900/40">
-                        <div class="w-12 h-12 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div class="overflow-hidden">
-                            <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">HASSAN OFC EMAIL</span>
-                            <span class="text-xs sm:text-sm font-black text-white truncate block">ansarbubble43@gmail.com</span>
-                        </div>
-                    </a>
-
-                </div>
-
-                <!-- Direct Email Send Form via FormSubmit -->
-                <form action="https://formsubmit.co/ansarbubble43@gmail.com" method="POST" class="space-y-4">
-                    <!-- FormSubmit Configuration -->
-                    <input type="hidden" name="_subject" value="New Portfolio Message from Hassan Website!">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">Your Name</label>
-                            <input type="text" name="name" required placeholder="Enter your name" class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-amber-500/30 text-white text-xs sm:text-sm focus:outline-none focus:border-amber-400 transition-colors">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">Your Email</label>
-                            <input type="email" name="email" required placeholder="Enter your email" class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-amber-500/30 text-white text-xs sm:text-sm focus:outline-none focus:border-amber-400 transition-colors">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">Subject</label>
-                        <input type="text" name="subject" required placeholder="Subject (e.g. Website Request)" class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-amber-500/30 text-white text-xs sm:text-sm focus:outline-none focus:border-amber-400 transition-colors">
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">Message</label>
-                        <textarea name="message" rows="4" required placeholder="Write your message here..." class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-amber-500/30 text-white text-xs sm:text-sm focus:outline-none focus:border-amber-400 transition-colors resize-none"></textarea>
-                    </div>
-
-                    <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg hover:brightness-110 active:scale-95 transition-all">
-                        <i class="fa-solid fa-paper-plane"></i> Send Direct Email
+                    <button type="submit" class="cyber-btn w-full py-3.5 rounded-xl font-bold text-white flex items-center justify-center gap-2 text-xs">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> SEND TO HASSAN OFC WHATSAPP
                     </button>
                 </form>
-
             </div>
-        </section>
 
-        <!-- FOOTER -->
-        <footer class="w-full py-8 border-t border-amber-500/20 bg-slate-950/90 backdrop-blur-md text-center mt-12">
-            <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-bold text-slate-400">
-                <p>© 2026 HASSAN OFC PORTFOLIO. All Rights Reserved.</p>
-                <p class="gold-text">Crafted By HASSAN FF</p>
-            </div>
-        </footer>
+        </div>
+    </section>
 
+    <!-- FLOATING QUICK WHATSAPP BUTTON -->
+    <a href="https://wa.me/923294675242" target="_blank" class="fixed bottom-6 right-6 z-40 p-4 bg-emerald-500 text-black font-bold rounded-full shadow-2xl hover:scale-110 hover:bg-emerald-400 transition-all flex items-center justify-center text-2xl shadow-emerald-500/30">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- FOOTER -->
+    <footer class="py-8 border-t border-white/10 text-center font-mono text-xs text-slate-500">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© <span id="year"></span> HASSAN UMAIR. ALL RIGHTS RESERVED.</p>
+            <p class="text-neonCyan font-bold">WEB DEVELOPMENT USER // HASSAN FF</p>
+        </div>
+    </footer>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 glass-panel px-6 py-3 rounded-2xl border border-neonCyan text-white text-xs font-mono shadow-2xl flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-neonGreen text-base"></i>
+        <span id="toast-text">Copied to clipboard!</span>
     </div>
 
-    <!-- LIGHTBOX MODAL FOR GALLERY IMAGES -->
-    <div id="lightbox" class="fixed inset-0 bg-black/92 z-50 hidden flex items-center justify-center p-4 backdrop-blur-md" onclick="closeLightbox()">
-        <button onclick="closeLightbox()" class="absolute top-5 right-5 text-white text-3xl hover:text-amber-400 transition-colors p-2">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <img id="lightbox-img" src="" alt="Full View" class="max-w-full max-h-[85vh] rounded-2xl border-2 border-amber-500 gold-glow object-contain" onclick="event.stopPropagation()">
-    </div>
-
-    <!-- JAVASCRIPT FOR TYPEWRITER, CAROUSEL & INTERACTION -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // Quotes Data Array
-        const quotes = [
-            {
-                text: "“ Kamyabi ka rasta mushkil zaroor hota hai, par manzil unhi ko milti hai jo haar nahi maante. Waqt apka ho ya na ho, aapki mehnat hamesha rang laati hai. ”",
-                option: "OPTION 1 — SUCCESS & PATIENCE"
-            },
-            {
-                text: "“ Zindagi me sab kuch milna aasan nahi hota, par jo mushkilat se lad kar aage barhte hain, wahi asli pehchan banate hain. ”",
-                option: "OPTION 2 — LIFE & REALITY"
-            },
-            {
-                text: "“ Khamoshi sab se behtar jawab hai us insaan ko jo aapki mehnat par shaq kare. ”",
-                option: "OPTION 3 — SHORT & CATCHY"
-            }
-        ];
+        // Set dynamic current year
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        let currentQuoteIndex = 0;
-        let typewriterTimeout;
-        let autoPlayInterval;
+        // Mobile Navigation Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
 
-        const typewriterElement = document.getElementById('typewriter-text');
-        const quoteBadgeElement = document.getElementById('quote-option-badge');
-        const quoteCounterElement = document.getElementById('quote-counter');
+        // Typing Effect Loop
+        const typingElement = document.getElementById('typing-text');
+        const words = ['WEB DEVELOPMENT USER', 'FULL STACK DEVELOPER', 'HASSAN FF', 'CREATOR OF TOOLKITS', '15 Y/O TECH PRODIGY'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
 
-        // Typewriter Effect Logic
-        function typeWriter(text, index = 0) {
-            if (index < text.length) {
-                typewriterElement.innerHTML = text.substring(0, index + 1);
-                typewriterTimeout = setTimeout(() => typeWriter(text, index + 1), 30);
-            }
-        }
-
-        function displayQuote(index) {
-            clearTimeout(typewriterTimeout);
-            currentQuoteIndex = index;
-            typewriterElement.innerHTML = '';
-            
-            quoteBadgeElement.innerText = quotes[index].option;
-            quoteCounterElement.innerText = `${index + 1} / ${quotes.length}`;
-
-            // Update Active Option Button
-            document.querySelectorAll('.quote-btn').forEach((btn, i) => {
-                if (i === index) {
-                    btn.className = "quote-btn px-3 py-1.5 rounded-full border border-amber-500/40 text-[11px] sm:text-xs font-bold transition-all bg-amber-500/30 text-amber-300 shadow-md";
-                } else {
-                    btn.className = "quote-btn px-3 py-1.5 rounded-full border border-amber-500/40 text-[11px] sm:text-xs font-bold transition-all bg-slate-800 text-slate-300";
-                }
-            });
-
-            typeWriter(quotes[index].text);
-        }
-
-        function selectQuote(index) {
-            displayQuote(index);
-            resetAutoPlay();
-        }
-
-        function nextQuoteManual() {
-            let nextIndex = (currentQuoteIndex + 1) % quotes.length;
-            displayQuote(nextIndex);
-            resetAutoPlay();
-        }
-
-        function prevQuote() {
-            let prevIndex = (currentQuoteIndex - 1 + quotes.length) % quotes.length;
-            displayQuote(prevIndex);
-            resetAutoPlay();
-        }
-
-        function startAutoPlay() {
-            autoPlayInterval = setInterval(() => {
-                let nextIndex = (currentQuoteIndex + 1) % quotes.length;
-                displayQuote(nextIndex);
-            }, 8500);
-        }
-
-        function resetAutoPlay() {
-            clearInterval(autoPlayInterval);
-            startAutoPlay();
-        }
-
-        // Copy Quote Function
-        function copyCurrentQuote() {
-            const currentQuote = quotes[currentQuoteIndex].text;
-            navigator.clipboard.writeText(currentQuote).then(() => {
-                showToast("Quote Copied Successfully!");
-            }).catch(() => {
-                // Fallback for iframe / unsupported browsers
-                const tempTextArea = document.createElement("textarea");
-                tempTextArea.value = currentQuote;
-                document.body.appendChild(tempTextArea);
-                tempTextArea.select();
-                document.execCommand("copy");
-                document.body.removeChild(tempTextArea);
-                showToast("Quote Copied Successfully!");
-            });
-        }
-
-        // Toast Notification Helper
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-msg');
-            toastMsg.innerText = message;
-            toast.classList.remove('opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'pointer-events-none');
-            }, 2500);
-        }
-
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('menu-icon');
-            menu.classList.toggle('hidden');
-            if(menu.classList.contains('hidden')) {
-                icon.className = 'fa-solid fa-bars';
+        function typeEffect() {
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                typingElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
             } else {
-                icon.className = 'fa-solid fa-xmark';
+                typingElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
             }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2200;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 400;
+            }
+
+            setTimeout(typeEffect, typeSpeed);
+        }
+        typeEffect();
+
+        // Animated Counter Numbers
+        const counters = document.querySelectorAll('.counter');
+        let counterAnimated = false;
+
+        function animateCounters() {
+            if (counterAnimated) return;
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const speed = target / 30;
+                const updateCount = () => {
+                    count += speed;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 40);
+                    } else {
+                        counter.innerText = target + "+";
+                    }
+                };
+                updateCount();
+            });
+            counterAnimated = true;
         }
 
-        // Lightbox Functions
-        function openLightbox(imgSrc) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            lightboxImg.src = imgSrc;
-            lightbox.classList.remove('hidden');
+        window.addEventListener('scroll', () => {
+            const aboutSection = document.getElementById('about');
+            const rect = aboutSection.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                animateCounters();
+            }
+        });
+
+        // Gallery Lightbox Array Logic
+        const galleryImages = [
+            'https://i.ibb.co/8LbFsWq0/1792492990190.jpg',
+            'https://i.ibb.co/21qmyHBJ/jawadmd.jpg',
+            'https://i.ibb.co/Ng9PdyMK/jawadmd.jpg',
+            'https://i.postimg.cc/nLx4FJKr/1000005452.png',
+            'https://files.catbox.moe/lyj69b.jpg'
+        ];
+        let currentImageIndex = 0;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
+            document.getElementById('lightbox').classList.remove('hidden');
         }
 
         function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.add('hidden');
+            document.getElementById('lightbox').classList.add('hidden');
         }
 
-        // Initialize on page load
+        function nextLightboxImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
+        }
+
+        function prevLightboxImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
+        }
+
+        // Keyboard navigation for Lightbox
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('lightbox').classList.contains('hidden')) {
+                if (e.key === 'ArrowRight') nextLightboxImage();
+                if (e.key === 'ArrowLeft') prevLightboxImage();
+                if (e.key === 'Escape') closeLightbox();
+            }
+        });
+
+        // Copy to Clipboard Toast Alert
+        function copyToClipboard(text, label) {
+            const input = document.createElement('input');
+            input.value = text;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-text').textContent = `${label} copied to clipboard!`;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // WhatsApp Form Submit
+        function sendWhatsAppForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('sender-name').value;
+            const msg = document.getElementById('sender-msg').value;
+            const fullText = `Hello Hassan Umair! My Name is ${name}. Message: ${msg}`;
+            const url = `https://wa.me/923294675242?text=${encodeURIComponent(fullText)}`;
+            window.open(url, '_blank');
+        }
+
+        // Interactive Particle Canvas with Mouse Attraction
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 120 };
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.baseX = this.x;
+                this.baseY = this.y;
+                this.speedX = (Math.random() - 0.5) * 0.8;
+                this.speedY = (Math.random() - 0.5) * 0.8;
+                this.color = Math.random() > 0.5 ? '#00f0ff' : '#8b5cf6';
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+
+                // Mouse interaction attraction
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < mouse.radius) {
+                    this.size = 3.5;
+                } else {
+                    this.size = Math.random() * 1.5 + 0.5;
+                }
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const count = Math.floor((canvas.width * canvas.height) / 16000);
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+        initParticles();
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
         window.onload = function() {
-            displayQuote(0);
-            startAutoPlay();
+            animateParticles();
         };
     </script>
 </body>
