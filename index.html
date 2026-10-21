@@ -1,44 +1,35 @@
-
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="ur" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HASSAN FF | Official Portfolio</title>
-    <!-- Tailwind CSS -->
+    <title>HASSAN OFC PORTFOLIO | Golden Words, Projects & Gallery</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
+    
+    <!-- Google Fonts: Cinzel & Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     
+    <!-- Font Awesome Icons for Social Logos & UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
-                    colors: {
-                        brand: {
-                            50: 'var(--brand-50)',
-                            400: 'var(--brand-400)',
-                            500: 'var(--brand-500)',
-                            600: 'var(--brand-600)',
-                            glow: 'var(--brand-glow)',
-                        },
-                        dark: {
-                            950: '#030508',
-                            900: '#06080d',
-                            800: '#0b0f17',
-                            700: '#131b2a',
-                            600: '#1e293b'
-                        }
-                    },
                     fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        mono: ['Space Grotesk', 'monospace'],
-                        code: ['Fira Code', 'monospace']
+                        cinzel: ['Cinzel', 'serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            light: '#FFF2A3',
+                            DEFAULT: '#D4AF37',
+                            dark: '#AA771C'
+                        }
                     }
                 }
             }
@@ -46,1058 +37,713 @@
     </script>
 
     <style>
-        :root {
-            --brand-50: #ecfeff;
-            --brand-400: #22d3ee;
-            --brand-500: #06b6d4;
-            --brand-600: #0891b2;
-            --brand-glow: rgba(6, 182, 212, 0.35);
+        /* Custom Glowing & Gradient Effects */
+        body {
+            background-color: #080b13;
+            color: #f1f5f9;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        body.theme-cyan {
-            --brand-400: #22d3ee;
-            --brand-500: #06b6d4;
-            --brand-600: #0891b2;
-            --brand-glow: rgba(6, 182, 212, 0.35);
-        }
-        body.theme-pink {
-            --brand-400: #f472b6;
-            --brand-500: #ec4899;
-            --brand-600: #db2777;
-            --brand-glow: rgba(236, 72, 153, 0.35);
-        }
-        body.theme-lime {
-            --brand-400: #a3e635;
-            --brand-500: #84cc16;
-            --brand-600: #65a30d;
-            --brand-glow: rgba(132, 204, 22, 0.35);
-        }
-        body.theme-orange {
-            --brand-400: #fb923c;
-            --brand-500: #f97316;
-            --brand-600: #ea580c;
-            --brand-glow: rgba(249, 115, 22, 0.35);
+        /* Nature & Night Sky Gradient Background */
+        .sky-bg {
+            background: radial-gradient(ellipse at top, #141e30 0%, #080b13 100%);
+            position: relative;
         }
 
-        /* Glassmorphism Design Tokens */
-        .glass-card {
-            background: rgba(19, 27, 42, 0.65);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        /* Ambient Stars effect */
+        .stars-overlay {
+            background-image: 
+                radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, #d4af37, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 160px 120px, #ffd700, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 230px 190px, #ffffff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 280px 280px;
+            opacity: 0.65;
         }
 
-        .glass-card:hover {
-            border-color: var(--brand-500);
-            box-shadow: 0 10px 30px -10px var(--brand-glow);
+        /* Metallic Gold Text Gradient */
+        .gold-text {
+            background: linear-gradient(135deg, #FFF2A3 0%, #D4AF37 40%, #FFE066 70%, #AA771C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 18px rgba(212, 175, 55, 0.25);
         }
 
-        .glass-topbar {
-            background: rgba(3, 5, 8, 0.92);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        /* Golden Glowing Elements */
+        .gold-glow {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
         }
 
-        .glass-nav {
-            background: rgba(6, 8, 13, 0.85);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        .gold-glow-hover {
+            transition: all 0.3s ease;
+        }
+        .gold-glow-hover:hover {
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+            border-color: rgba(212, 175, 55, 0.8);
         }
 
-        /* Ambient Cursor Spotlight */
-        #spotlight {
-            pointer-events: none;
-            position: fixed;
-            inset: 0;
-            z-index: 20;
-            background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), var(--brand-glow), transparent 45%);
-            opacity: 0.25;
-            transition: opacity 0.3s ease;
+        /* Pulsing Glow Animation */
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.35; transform: scale(1); }
+            50% { opacity: 0.75; transform: scale(1.08); }
         }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #030508;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--brand-500);
+        .animate-glow-pulse {
+            animation: pulseGlow 4s infinite ease-in-out;
         }
 
-        /* Typewriter Cursor */
-        .typing-cursor::after {
+        /* Typewriter Cursor animation */
+        .typewriter-cursor::after {
             content: '|';
-            animation: blink 1s infinite;
-            color: var(--brand-500);
+            animation: blink 0.8s infinite;
+            color: #D4AF37;
+            font-weight: bold;
         }
+
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
 
-        .text-gradient {
-            background: linear-gradient(135deg, #ffffff 0%, var(--brand-400) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
         }
-
-        /* Hide Google Native Toolbar Elements */
-        .goog-te-banner-frame, .goog-te-gadget {
-            display: none !important;
+        ::-webkit-scrollbar-track {
+            background: #080b13;
         }
-        body {
-            top: 0px !important;
-        }
-        #google_translate_element {
-            display: none;
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 3px;
         }
     </style>
-
-    <!-- Google Translate Script -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,ur,hi,ar,es,fr,de,zh-CN,ja,tr,ru,pt,it,bn,id,fa,pa,ko,vi,th,pl,ro,sv,da,fi,no,uk,he,ms,sw,am,ne,si,hy,ka,az,uz,kk,km,lo,my,tl,zu,xh,af,sq,bs,hr,sr,sk,sl,el,cs,hu,nl',
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
-<body class="bg-dark-950 text-slate-200 font-sans selection:bg-brand-500 selection:text-black theme-cyan overflow-x-hidden relative">
+<body class="sky-bg min-h-screen flex flex-col justify-between selection:bg-yellow-500 selection:text-black">
 
-    <!-- Hidden Translate Engine Anchor -->
-    <div id="google_translate_element"></div>
+    <!-- Stars Overlay Background -->
+    <div class="stars-overlay fixed inset-0 pointer-events-none z-0"></div>
 
-    <!-- Cursor Spotlight Overlay -->
-    <div id="spotlight"></div>
+    <!-- Soft Ambient Glow Orbs -->
+    <div class="fixed top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-amber-500/10 rounded-full blur-[100px] sm:blur-[130px] pointer-events-none animate-glow-pulse z-0"></div>
+    <div class="fixed bottom-10 right-5 w-[220px] sm:w-[350px] h-[220px] sm:h-[350px] bg-yellow-600/10 rounded-full blur-[90px] pointer-events-none z-0"></div>
 
-    <!-- Particle Background -->
-    <canvas id="particles-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
-
-    <!-- 1. TOP BLURRED BLACK LANGUAGE BAR -->
-    <div class="fixed top-0 left-0 w-full z-50 glass-topbar h-10 px-4 sm:px-8 flex items-center justify-between text-xs font-mono">
-        <div class="flex items-center gap-2 text-slate-400">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span class="font-bold tracking-wider text-slate-200 uppercase">Language</span>
-        </div>
-
-        <div class="relative" id="topLangMenuContainer">
-            <button onclick="toggleLangDropdown()" class="px-3 py-1 rounded-lg bg-dark-900 border border-slate-700/80 hover:border-brand-500 text-brand-400 font-bold flex items-center gap-2 transition-all">
-                <i class="fa-solid fa-globe text-xs"></i>
-                <span id="currentLangLabel">EN</span>
-                <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
-            </button>
-
-            <!-- 50+ Languages Dropdown -->
-            <div id="langDropdown" class="hidden absolute right-0 mt-2 w-64 max-h-80 overflow-y-auto glass-card rounded-xl p-2 shadow-2xl border border-slate-700/80 z-50">
-                <div class="px-3 py-1.5 text-[10px] font-mono text-brand-400 uppercase tracking-widest border-b border-slate-800 flex justify-between">
-                    <span>Select Language</span>
-                    <span class="text-slate-500">50+ Real Languages</span>
-                </div>
-                <div class="py-1 grid grid-cols-1 gap-0.5" id="languagesList"></div>
-            </div>
-        </div>
+    <!-- Toast Notification for Copy -->
+    <div id="toast" class="fixed bottom-6 right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-6 bg-amber-500 text-slate-950 px-5 py-3 rounded-xl font-bold shadow-2xl z-50 flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300 text-sm">
+        <i class="fa-solid fa-circle-check text-lg"></i>
+        <span id="toast-msg">Quote Copied to Clipboard!</span>
     </div>
 
-    <!-- MAIN NAVBAR -->
-    <header class="fixed top-10 left-0 w-full z-40 glass-nav transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#home" class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center font-mono font-bold text-brand-400 shadow-md">
-                    H
-                </div>
-                <span class="font-mono text-lg font-extrabold tracking-wider text-white">HASSAN <span class="text-brand-400">FF</span></span>
-            </a>
+    <!-- Main Content Container -->
+    <div class="relative z-10 flex flex-col min-h-screen">
 
-            <!-- Desktop Links -->
-            <nav class="hidden lg:flex items-center gap-7 text-xs font-mono uppercase tracking-wider text-slate-300">
-                <a href="#home" class="hover:text-brand-400 transition-colors py-1">Home</a>
-                <a href="#about" class="hover:text-brand-400 transition-colors py-1">About</a>
-                <a href="#skills" class="hover:text-brand-400 transition-colors py-1">Skills</a>
-                <a href="#projects" class="hover:text-brand-400 transition-colors py-1">Projects</a>
-                <a href="#trophies" class="hover:text-brand-400 transition-colors py-1">Achievements</a>
-                <a href="#terminal" class="hover:text-brand-400 transition-colors py-1">Terminal</a>
-                <a href="#github-stats" class="hover:text-brand-400 transition-colors py-1">GitHub</a>
-                <a href="#testimonials" class="hover:text-brand-400 transition-colors py-1">Reviews</a>
-                <a href="#contact" class="hover:text-brand-400 transition-colors py-1">Contact</a>
-            </nav>
-
-            <!-- Actions & Theme Switcher -->
-            <div class="hidden sm:flex items-center gap-3">
-                <!-- Resume Modal Trigger Button -->
-                <button onclick="openCvModal()" class="px-3.5 py-2 rounded-xl glass-card text-brand-400 border-brand-500/40 hover:bg-brand-500 hover:text-black text-xs font-mono font-bold transition-all flex items-center gap-2">
-                    <i class="fa-solid fa-file-pdf"></i>
-                    <span>Download CV</span>
-                </button>
-
-                <!-- Theme Color Selector -->
-                <div class="relative group">
-                    <button class="w-9 h-9 rounded-xl bg-dark-900 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-brand-400 transition-all">
-                        <i class="fa-solid fa-palette text-sm"></i>
-                    </button>
-                    <div class="absolute right-0 mt-2 w-36 glass-card rounded-xl p-2 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all flex flex-col gap-1 z-50">
-                        <span class="text-[10px] font-mono text-slate-400 px-2 uppercase">Theme Accent</span>
-                        <div class="grid grid-cols-4 gap-1.5 pt-1">
-                            <button onclick="setTheme('cyan')" class="w-6 h-6 rounded-full bg-cyan-400" title="Cyan"></button>
-                            <button onclick="setTheme('pink')" class="w-6 h-6 rounded-full bg-pink-500" title="Pink"></button>
-                            <button onclick="setTheme('lime')" class="w-6 h-6 rounded-full bg-lime-400" title="Lime"></button>
-                            <button onclick="setTheme('orange')" class="w-6 h-6 rounded-full bg-orange-500" title="Orange"></button>
-                        </div>
+        <!-- HEADER / BRANDING -->
+        <header class="w-full py-4 sm:py-6 px-4 md:px-12 border-b border-amber-500/20 backdrop-blur-md bg-slate-950/60 sticky top-0 z-40">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <!-- Brand Logo & Name -->
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-amber-600 to-yellow-300 p-[2px] shadow-lg shadow-amber-500/20">
+                        <img src="https://i.ibb.co/8LbFsWq0/1792492990190.jpg" alt="Logo" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/100x100/111/D4AF37?text=H'">
                     </div>
-                </div>
-
-                <a href="#contact" class="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-black font-bold text-xs transition-all shadow-md shadow-brand-500/20">
-                    Let's Talk
+                    <span class="font-cinzel text-lg sm:text-2xl font-black tracking-wider gold-text uppercase">
+                        HASSAN OFC
+                    </span>
                 </a>
-            </div>
 
-            <!-- Mobile Drawer Button -->
-            <button id="mobileMenuBtn" class="lg:hidden w-9 h-9 rounded-xl bg-dark-800 border border-slate-700 flex items-center justify-center text-slate-200">
-                <i class="fa-solid fa-bars text-sm"></i>
-            </button>
-        </div>
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-6 font-montserrat font-bold text-xs sm:text-sm tracking-wider">
+                    <a href="#quotes" class="hover:text-amber-400 transition-colors uppercase">Quotes</a>
+                    <a href="#about" class="hover:text-amber-400 transition-colors uppercase">About</a>
+                    <a href="#projects" class="hover:text-amber-400 transition-colors uppercase">Projects</a>
+                    <a href="#socials" class="hover:text-amber-400 transition-colors uppercase">Socials</a>
+                    <a href="#gallery" class="hover:text-amber-400 transition-colors uppercase">Gallery</a>
+                    <a href="#contact" class="hover:text-amber-400 transition-colors uppercase">Contact</a>
+                </nav>
 
-        <!-- Mobile Navigation Menu -->
-        <div id="mobileMenu" class="hidden lg:hidden glass-card border-t border-slate-800 px-6 py-6 flex-col gap-3 text-sm font-mono">
-            <a href="#home" class="mobile-nav-link text-slate-300 hover:text-brand-400">Home</a>
-            <a href="#about" class="mobile-nav-link text-slate-300 hover:text-brand-400">About</a>
-            <a href="#skills" class="mobile-nav-link text-slate-300 hover:text-brand-400">Skills</a>
-            <a href="#projects" class="mobile-nav-link text-slate-300 hover:text-brand-400">Projects</a>
-            <a href="#trophies" class="mobile-nav-link text-slate-300 hover:text-brand-400">Achievements</a>
-            <a href="#terminal" class="mobile-nav-link text-slate-300 hover:text-brand-400">Terminal</a>
-            <a href="#github-stats" class="mobile-nav-link text-slate-300 hover:text-brand-400">GitHub Stats</a>
-            <a href="#testimonials" class="mobile-nav-link text-slate-300 hover:text-brand-400">Testimonials</a>
-            <a href="#contact" class="mobile-nav-link text-slate-300 hover:text-brand-400">Contact</a>
-            
-            <div class="pt-3 border-t border-slate-800 flex items-center justify-between">
-                <button onclick="openCvModal()" class="px-4 py-2 rounded-xl bg-brand-500/20 text-brand-400 border border-brand-500/40 text-xs font-bold">
-                    <i class="fa-solid fa-file-pdf mr-1"></i> CV Preview
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden text-amber-400 text-2xl p-2 focus:outline-none" aria-label="Toggle Navigation">
+                    <i id="menu-icon" class="fa-solid fa-bars"></i>
                 </button>
-                <div class="flex items-center gap-2">
-                    <button onclick="setTheme('cyan')" class="w-5 h-5 rounded-full bg-cyan-400"></button>
-                    <button onclick="setTheme('pink')" class="w-5 h-5 rounded-full bg-pink-500"></button>
-                    <button onclick="setTheme('lime')" class="w-5 h-5 rounded-full bg-lime-400"></button>
-                    <button onclick="setTheme('orange')" class="w-5 h-5 rounded-full bg-orange-500"></button>
-                </div>
             </div>
-        </div>
-    </header>
 
-    <!-- MAIN BODY CONTENT -->
-    <main class="relative z-10 pt-28">
+            <!-- Mobile Drawer Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden pt-4 pb-2 border-t border-amber-500/10 mt-3">
+                <nav class="flex flex-col gap-3 font-montserrat font-bold text-sm text-center">
+                    <a href="#quotes" onclick="toggleMobileMenu()" class="py-2 hover:bg-amber-500/10 rounded-lg text-slate-200">Quotes</a>
+                    <a href="#about" onclick="toggleMobileMenu()" class="py-2 hover:bg-amber-500/10 rounded-lg text-slate-200">About Me</a>
+                    <a href="#projects" onclick="toggleMobileMenu()" class="py-2 hover:bg-amber-500/10 rounded-lg text-slate-200">Projects</a>
+                    <a href="#socials" onclick="toggleMobileMenu()" class="py-2 hover:bg-amber-500/10 rounded-lg text-slate-200">Socials</a>
+                    <a href="#gallery" onclick="toggleMobileMenu()" class="py-2 hover:bg-amber-500/10 rounded-lg text-slate-200">Gallery</a>
+                    <a href="#contact" onclick="toggleMobileMenu()" class="py-2 hover:bg-amber-500/10 rounded-lg text-slate-200">Contact</a>
+                </nav>
+            </div>
+        </header>
 
-        <!-- HERO SECTION -->
-        <section id="home" class="min-h-[calc(100vh-112px)] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
-            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- HERO & GOLDEN WORDS CAROUSEL SECTION -->
+        <section id="quotes" class="py-12 sm:py-20 px-4 max-w-5xl mx-auto text-center w-full">
+            <div class="inline-block px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold tracking-widest uppercase mb-4 sm:mb-6">
+                ✨ Inspiring Golden Words
+            </div>
+            
+            <h1 class="font-cinzel text-2xl sm:text-5xl lg:text-6xl font-extrabold gold-text mb-6 sm:mb-8 leading-tight">
+                GOLDEN WORDS OF LIFE
+            </h1>
+
+            <!-- Interactive Typewriter Quotes Card -->
+            <div class="relative bg-slate-900/80 backdrop-blur-md border border-amber-500/30 rounded-2xl p-5 sm:p-10 gold-glow text-center min-h-[280px] sm:min-h-[300px] flex flex-col justify-between items-center my-4 sm:my-6">
                 
-                <!-- Left Intro -->
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border-brand-500/30 text-xs font-mono text-brand-400">
-                        <span class="w-2 h-2 rounded-full bg-brand-400 animate-ping"></span>
-                        <span>OFFICIAL TECH & GAMING PORTFOLIO</span>
-                    </div>
+                <!-- Decorative Quote Icon -->
+                <i class="fa-solid fa-quote-left text-2xl sm:text-4xl text-amber-500/30 mb-2"></i>
 
-                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
-                        Hello, I'm <br>
-                        <span class="text-gradient">HASSAN FF</span>
-                    </h1>
-
-                    <div class="text-lg sm:text-2xl font-mono text-slate-300 flex items-center justify-center lg:justify-start gap-2 h-8">
-                        <span>I build</span>
-                        <span id="typewriter" class="text-brand-400 font-bold typing-cursor"></span>
-                    </div>
-
-                    <p class="text-slate-400 text-base max-w-2xl leading-relaxed mx-auto lg:mx-0">
-                        Full-Stack Developer & Esports Creator. Creator of Hassan Toolkit and Hassan TT Downloader. Crafting ultra-fast web tools, APIs, and gaming media experiences.
+                <!-- Quote Text Container -->
+                <div class="w-full flex-grow flex items-center justify-center my-3 px-2">
+                    <p id="typewriter-text" class="font-cinzel text-base sm:text-2xl lg:text-3xl font-bold text-amber-100 leading-relaxed sm:leading-loose typewriter-cursor">
+                        <!-- Typewriter JS output -->
                     </p>
+                </div>
 
-                    <!-- CTA Buttons -->
-                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-                        <a href="#projects" class="px-7 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-black font-bold text-sm transition-all shadow-lg shadow-brand-500/25 flex items-center gap-2">
-                            <span>Explore Projects</span>
-                            <i class="fa-solid fa-arrow-right text-xs"></i>
-                        </a>
-                        <button onclick="openCvModal()" class="px-7 py-3.5 rounded-xl glass-card text-white hover:text-brand-400 font-semibold text-sm transition-all flex items-center gap-2 border-slate-700">
-                            <i class="fa-solid fa-file-arrow-down text-brand-400"></i>
-                            <span>View Resume / CV</span>
+                <div id="quote-option-badge" class="mt-2 text-[10px] sm:text-xs font-montserrat font-extrabold tracking-widest text-amber-400/80 uppercase">
+                    OPTION 1
+                </div>
+
+                <!-- Carousel Controls & Copy Action -->
+                <div class="w-full flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 pt-4 border-t border-amber-500/10">
+                    
+                    <!-- Prev / Next Controls -->
+                    <div class="flex items-center gap-2 order-2 sm:order-1">
+                        <button onclick="prevQuote()" class="p-2.5 rounded-full bg-slate-800 border border-amber-500/30 text-amber-300 hover:bg-amber-500/20 active:scale-95 transition-all text-xs sm:text-sm">
+                            <i class="fa-solid fa-chevron-left px-1"></i>
+                        </button>
+                        <span id="quote-counter" class="text-xs font-bold text-slate-400 px-2">1 / 3</span>
+                        <button onclick="nextQuoteManual()" class="p-2.5 rounded-full bg-slate-800 border border-amber-500/30 text-amber-300 hover:bg-amber-500/20 active:scale-95 transition-all text-xs sm:text-sm">
+                            <i class="fa-solid fa-chevron-right px-1"></i>
                         </button>
                     </div>
 
-                    <!-- Social Links -->
-                    <div class="pt-4 flex items-center justify-center lg:justify-start gap-3 flex-wrap">
-                        <span class="text-xs font-mono text-slate-500 uppercase tracking-widest mr-2">Socials:</span>
-                        
-                        <a href="https://www.youtube.com/@vkdongaming678" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl glass-card flex items-center justify-center text-slate-400 hover:text-red-500 hover:border-red-500/50 transition-all" title="YouTube">
-                            <i class="fa-brands fa-youtube"></i>
-                        </a>
-                        <a href="https://www.tiktok.com/@maryo3211" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl glass-card flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-all" title="TikTok">
-                            <i class="fa-brands fa-tiktok"></i>
-                        </a>
-                        <a href="https://www.instagram.com/@end_hassan_ff" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl glass-card flex items-center justify-center text-slate-400 hover:text-pink-500 hover:border-pink-500/50 transition-all" title="Instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="https://www.facebook.com/share/14rXJyjstSm/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl glass-card flex items-center justify-center text-slate-400 hover:text-blue-500 hover:border-blue-500/50 transition-all" title="Facebook">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="https://github.com/hassan-ff-max" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl glass-card flex items-center justify-center text-slate-400 hover:text-white hover:border-white/50 transition-all" title="GitHub">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a href="https://wa.me/+923372938160" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl glass-card flex items-center justify-center text-slate-400 hover:text-emerald-400 hover:border-emerald-400/50 transition-all" title="WhatsApp">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </a>
+                    <!-- Option Switcher Pills -->
+                    <div class="flex flex-wrap justify-center gap-1.5 sm:gap-2 order-1 sm:order-2">
+                        <button onclick="selectQuote(0)" id="btn-0" class="quote-btn px-3 py-1.5 rounded-full border border-amber-500/30 text-[11px] sm:text-xs font-bold transition-all bg-amber-500/30 text-amber-300">Option 1</button>
+                        <button onclick="selectQuote(1)" id="btn-1" class="quote-btn px-3 py-1.5 rounded-full border border-amber-500/30 text-[11px] sm:text-xs font-bold transition-all bg-slate-800 text-slate-300">Option 2</button>
+                        <button onclick="selectQuote(2)" id="btn-2" class="quote-btn px-3 py-1.5 rounded-full border border-amber-500/30 text-[11px] sm:text-xs font-bold transition-all bg-slate-800 text-slate-300">Option 3</button>
                     </div>
-                </div>
 
-                <!-- Right Avatar Photo Frame -->
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-                        <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-brand-500 to-indigo-600 opacity-30 blur-xl"></div>
-                        <div class="relative w-full h-full rounded-full p-2.5 glass-card overflow-hidden border-2 border-brand-500/40">
-                            <img 
-                                src="https://i.ibb.co/Ng9PdyMK/jawadmd.jpg" 
-                                alt="HASSAN FF Profile Picture" 
-                                class="w-full h-full object-cover rounded-full"
-                                onerror="this.onerror=null; this.src='https://placehold.co/400x400/0b0f17/06b6d4?text=HASSAN+FF';"
-                            />
-                        </div>
-                    </div>
+                    <!-- Copy Quote Button -->
+                    <button onclick="copyCurrentQuote()" class="w-full sm:w-auto px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:brightness-110 active:scale-95 transition-all order-3">
+                        <i class="fa-solid fa-copy"></i> Copy Quote
+                    </button>
                 </div>
-
             </div>
         </section>
 
-        <!-- ABOUT ME SECTION -->
-        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/60">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center max-w-3xl mx-auto mb-14">
-                    <h2 class="text-xs font-mono text-brand-400 uppercase tracking-widest mb-2">// PROFILE BIO</h2>
-                    <h3 class="text-3xl font-extrabold text-white">Crafting Modern Digital Products</h3>
-                    <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-                    <div class="lg:col-span-5 flex justify-center">
-                        <div class="relative w-full max-w-sm rounded-2xl glass-card p-2 border border-slate-700/60">
-                            <img 
-                                src="https://i.ibb.co/Ng9PdyMK/jawadmd.jpg" 
-                                alt="HASSAN FF Bio" 
-                                class="w-full h-80 object-cover rounded-xl"
-                                onerror="this.onerror=null; this.src='https://placehold.co/500x600/0b0f17/06b6d4?text=HASSAN+FF';"
-                            />
+        <!-- PROFILE & ABOUT ME SECTION -->
+        <section id="about" class="py-12 sm:py-16 px-4 max-w-4xl mx-auto w-full">
+            <div class="bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-amber-500/20 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+                
+                <!-- Profile Header Card -->
+                <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-10 mb-8 pb-8 border-b border-amber-500/15">
+                    
+                    <!-- Profile Picture -->
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-500 animate-glow-pulse"></div>
+                        <div class="relative w-32 h-32 sm:w-44 sm:h-44 rounded-full overflow-hidden border-4 border-amber-400/80 gold-glow">
+                            <img src="https://i.ibb.co/8LbFsWq0/1792492990190.jpg" alt="Hassan OFC Profile Picture" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/300x300/111/D4AF37?text=HASSAN'">
                         </div>
                     </div>
 
-                    <div class="lg:col-span-7 space-y-5">
-                        <h3 class="text-2xl font-bold text-white">Full-Stack Web Developer & Tech Content Creator</h3>
-                        <p class="text-slate-400 leading-relaxed text-sm sm:text-base">
-                            I'm Hassan, a developer and gaming creator. I build high-efficiency web applications, custom developer toolkits, media downloaders, and interactive web tools.
+                    <!-- Profile Info -->
+                    <div class="text-center sm:text-left flex-1">
+                        <span class="text-amber-400 font-montserrat font-bold text-xs tracking-widest uppercase block mb-1">
+                            Official Developer & Creator
+                        </span>
+                        <h2 class="font-cinzel text-2xl sm:text-4xl font-extrabold gold-text mb-3">
+                            HASSAN OFC PORTFOLIO
+                        </h2>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-medium">
+                            Creating crazy type free websites and web applications for everyone with aesthetic modern visuals.
                         </p>
-
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
-                            <div class="glass-card p-4 rounded-xl text-center">
-                                <span class="block text-2xl font-extrabold text-brand-400 font-mono">25+</span>
-                                <span class="text-[10px] text-slate-400 uppercase font-mono mt-1 block">Web Apps</span>
-                            </div>
-                            <div class="glass-card p-4 rounded-xl text-center">
-                                <span class="block text-2xl font-extrabold text-brand-400 font-mono">100%</span>
-                                <span class="text-[10px] text-slate-400 uppercase font-mono mt-1 block">Free Tools</span>
-                            </div>
-                            <div class="glass-card p-4 rounded-xl text-center">
-                                <span class="block text-2xl font-extrabold text-brand-400 font-mono">3+</span>
-                                <span class="text-[10px] text-slate-400 uppercase font-mono mt-1 block">Years Exp.</span>
-                            </div>
-                            <div class="glass-card p-4 rounded-xl text-center">
-                                <span class="block text-2xl font-extrabold text-brand-400 font-mono">50K+</span>
-                                <span class="text-[10px] text-slate-400 uppercase font-mono mt-1 block">Audience</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- SKILLS SECTION -->
-        <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800/40">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center max-w-3xl mx-auto mb-14">
-                    <h2 class="text-xs font-mono text-brand-400 uppercase tracking-widest mb-2">// TECHNICAL PROFICIENCY</h2>
-                    <h3 class="text-3xl font-extrabold text-white">Skills & Expertise</h3>
-                    <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="glass-card p-6 rounded-2xl space-y-5">
-                        <h4 class="text-lg font-bold text-white flex items-center gap-2">
-                            <i class="fa-solid fa-code text-brand-400"></i> Development Stack
-                        </h4>
-                        <div>
-                            <div class="flex justify-between text-xs font-mono mb-1">
-                                <span>HTML5, CSS3, Tailwind CSS</span>
-                                <span class="text-brand-400 font-bold">95%</span>
-                            </div>
-                            <div class="w-full h-2 bg-dark-950 rounded-full overflow-hidden">
-                                <div class="bg-brand-500 h-full rounded-full" style="width: 95%;"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs font-mono mb-1">
-                                <span>JavaScript (ES6+) & REST APIs</span>
-                                <span class="text-brand-400 font-bold">90%</span>
-                            </div>
-                            <div class="w-full h-2 bg-dark-950 rounded-full overflow-hidden">
-                                <div class="bg-brand-500 h-full rounded-full" style="width: 90%;"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs font-mono mb-1">
-                                <span>Toolkit Logic & Downloader Algorithms</span>
-                                <span class="text-brand-400 font-bold">88%</span>
-                            </div>
-                            <div class="w-full h-2 bg-dark-950 rounded-full overflow-hidden">
-                                <div class="bg-brand-500 h-full rounded-full" style="width: 88%;"></div>
-                            </div>
-                        </div>
+                <!-- Custom About Message Box -->
+                <div class="bg-slate-950/70 border border-amber-500/30 rounded-2xl p-5 sm:p-8 text-center sm:text-left relative">
+                    <div class="absolute top-3 right-4 text-amber-500/20 text-3xl">
+                        <i class="fa-solid fa-heart"></i>
                     </div>
-
-                    <div class="glass-card p-6 rounded-2xl space-y-5">
-                        <h4 class="text-lg font-bold text-white flex items-center gap-2">
-                            <i class="fa-solid fa-gamepad text-brand-400"></i> Gaming & Media Production
-                        </h4>
-                        <div>
-                            <div class="flex justify-between text-xs font-mono mb-1">
-                                <span>Video Editing & CapCut / Premiere</span>
-                                <span class="text-brand-400 font-bold">92%</span>
-                            </div>
-                            <div class="w-full h-2 bg-dark-950 rounded-full overflow-hidden">
-                                <div class="bg-brand-500 h-full rounded-full" style="width: 92%;"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs font-mono mb-1">
-                                <span>Gaming Content & Streaming Setups</span>
-                                <span class="text-brand-400 font-bold">88%</span>
-                            </div>
-                            <div class="w-full h-2 bg-dark-950 rounded-full overflow-hidden">
-                                <div class="bg-brand-500 h-full rounded-full" style="width: 88%;"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs font-mono mb-1">
-                                <span>UI/UX Cyberpunk Styling</span>
-                                <span class="text-brand-400 font-bold">85%</span>
-                            </div>
-                            <div class="w-full h-2 bg-dark-950 rounded-full overflow-hidden">
-                                <div class="bg-brand-500 h-full rounded-full" style="width: 85%;"></div>
-                            </div>
-                        </div>
+                    <h3 class="text-amber-300 font-cinzel text-lg sm:text-xl font-bold mb-4 uppercase flex items-center justify-center sm:justify-start gap-2">
+                        <i class="fa-solid fa-bullhorn text-amber-400 text-sm"></i> Developer Message
+                    </h3>
+                    <div class="space-y-3 font-montserrat text-xs sm:text-sm leading-relaxed text-slate-200">
+                        <p class="font-bold text-amber-200 text-sm sm:text-base">
+                            HELLO DESR'S ASALAMUALAIKUM ❤️
+                        </p>
+                        <p>
+                            I AM <span class="text-amber-400 font-bold">HASSAN FF</span> THE DEVELOPER OR CREATOR OF WEBSITE'S
+                        </p>
+                        <p>
+                            I MAKE SOME CRAZY TYPE WEBSITE'S FREE FOR EVERYONE
+                        </p>
+                        <p class="bg-amber-500/10 p-3 rounded-xl border border-amber-500/20 text-amber-300 font-semibold my-2">
+                            IF ANYBODY WANT TO MAKE HIS OWN WEBSITE FREE SO CONTACT ME THROUGH WA & MAIL
+                        </p>
+                        <p class="font-bold text-amber-200 pt-2">
+                            ALLAH HAFIZ ❤️ TAKE CARE 😘
+                        </p>
                     </div>
                 </div>
+
             </div>
         </section>
 
         <!-- PROJECTS SECTION -->
-        <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/60">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-xs font-mono text-brand-400 uppercase tracking-widest mb-2">// PORTFOLIO SHOWCASE</h2>
-                    <h3 class="text-3xl font-extrabold text-white">Featured Live Projects</h3>
-                    <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
-                </div>
+        <section id="projects" class="py-12 sm:py-16 px-4 max-w-6xl mx-auto w-full">
+            <div class="text-center mb-10">
+                <span class="text-amber-400 font-montserrat font-bold text-xs tracking-widest uppercase block mb-1">
+                    Featured Work
+                </span>
+                <h2 class="font-cinzel text-2xl sm:text-4xl font-extrabold gold-text mb-2">
+                    MY CRAZY PROJECTS
+                </h2>
+                <p class="text-slate-400 text-xs sm:text-sm font-semibold">
+                    Explore web tools and platforms created by Hassan
+                </p>
+            </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    
-                    <!-- Project 1: HASSAN TOOLKIT -->
-                    <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 p-6 space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="text-[10px] font-mono text-brand-400 uppercase tracking-widest bg-brand-500/10 px-3 py-1 rounded border border-brand-500/20">TOOLKIT</span>
-                            <span class="text-xs font-mono text-slate-400">Live Production</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Project 1: Hassan Toolkit -->
+                <div class="bg-slate-900/70 border border-amber-500/30 rounded-2xl p-6 flex flex-col justify-between gold-glow-hover">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-300 text-xl font-black">
+                                <i class="fa-solid fa-toolbox"></i>
+                            </div>
+                            <span class="text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 font-bold">
+                                Web Tool
+                            </span>
                         </div>
-                        <h4 class="text-2xl font-bold text-white">HASSAN TOOLKIT</h4>
-                        <p class="text-slate-300 text-sm leading-relaxed">
-                            A FULLY BEAUTIFUL WEBSITE NAME HASSAN TOOLKIT.
+                        <h3 class="font-cinzel text-xl sm:text-2xl font-bold gold-text mb-2">
+                            HASSAN TOOLKIT
+                        </h3>
+                        <p class="text-xs text-slate-400 font-medium mb-4">
+                            Official multi-purpose toolkit website.
                         </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
-                            <span class="bg-dark-950 px-2.5 py-1 rounded">#Toolkit</span>
-                            <span class="bg-dark-950 px-2.5 py-1 rounded">#WebTools</span>
-                            <span class="bg-dark-950 px-2.5 py-1 rounded">#ProSite</span>
-                        </div>
-                        <a href="https://hassan-toolkit-pro.vercel.app" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-brand-500 text-black font-bold text-xs font-mono flex items-center justify-center gap-2">
-                            <span>Open Website</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-
-                    <!-- Project 2: HASSAN TT DOWNLOADER -->
-                    <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 p-6 space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="text-[10px] font-mono text-pink-400 uppercase tracking-widest bg-pink-500/10 px-3 py-1 rounded border border-pink-500/20">MEDIA DOWNLOADER</span>
-                            <span class="text-xs font-mono text-emerald-400">100% Free</span>
-                        </div>
-                        <h4 class="text-2xl font-bold text-white">HASSAN TT DOWNLOADER</h4>
-                        <p class="text-slate-300 text-sm leading-relaxed">
-                            A TIKTOK VIDEO DOWNLOADER WITHOUT ANY COST, WITHOUT ANY LIMIT, WITHOUT ACCOUNT.
-                        </p>
-                        <div class="bg-dark-950 p-3 rounded-xl text-xs font-mono space-y-1 text-slate-300">
-                            <p class="text-brand-400 font-bold">VIDEO DOWNLOADING OPTIONS:</p>
-                            <p>• WITHOUT WATERMARK</p>
-                            <p>• WITH WATERMARK</p>
-                            <p>• DOWNLOAD AUDIO/MP3</p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
-                            <span class="bg-dark-950 px-2.5 py-1 rounded">#TikTokDownloader</span>
-                            <span class="bg-dark-950 px-2.5 py-1 rounded">#NoWatermark</span>
-                            <span class="bg-dark-950 px-2.5 py-1 rounded">#MP3Converter</span>
-                        </div>
-                        <a href="https://hassan-ttvd.vercel.app" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-pink-500 text-white font-bold text-xs font-mono flex items-center justify-center gap-2">
-                            <span>Open Downloader</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. GAMING TROPHIES & ACHIEVEMENTS GRID -->
-        <section id="trophies" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800/40">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center max-w-3xl mx-auto mb-14">
-                    <h2 class="text-xs font-mono text-brand-400 uppercase tracking-widest mb-2">// ESPORTS & DEV BADGES</h2>
-                    <h3 class="text-3xl font-extrabold text-white">Gaming Trophies & Achievements</h3>
-                    <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="glass-card p-6 rounded-2xl space-y-3 border-amber-500/30">
-                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-trophy"></i>
-                        </div>
-                        <h4 class="text-lg font-bold text-white">Grandmaster FF</h4>
-                        <p class="text-xs text-slate-400">Achieved top tier competitive Grandmaster status in Free Fire tournaments.</p>
-                        <span class="text-[10px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">Esports Rank #1</span>
-                    </div>
-
-                    <div class="glass-card p-6 rounded-2xl space-y-3 border-cyan-500/30">
-                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-code-commit"></i>
-                        </div>
-                        <h4 class="text-lg font-bold text-white">Verified Tool Dev</h4>
-                        <p class="text-xs text-slate-400">Deployed high-traffic web tools serving thousands of active monthly users.</p>
-                        <span class="text-[10px] font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded">100% Free Tools</span>
-                    </div>
-
-                    <div class="glass-card p-6 rounded-2xl space-y-3 border-purple-500/30">
-                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-circle-play"></i>
-                        </div>
-                        <h4 class="text-lg font-bold text-white">Creator Milestone</h4>
-                        <p class="text-xs text-slate-400">Built a vibrant gaming community across YouTube & TikTok channels.</p>
-                        <span class="text-[10px] font-mono text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">50K+ Community</span>
-                    </div>
-
-                    <div class="glass-card p-6 rounded-2xl space-y-3 border-emerald-500/30">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-                        <h4 class="text-lg font-bold text-white">Zero Watermark API</h4>
-                        <p class="text-xs text-slate-400">Engineered custom TikTok video extraction algorithm with MP3 conversion.</p>
-                        <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">No Limits API</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. INTERACTIVE CYBER HACKER TERMINAL -->
-        <section id="terminal" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/60">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center max-w-3xl mx-auto mb-10">
-                    <h2 class="text-xs font-mono text-brand-400 uppercase tracking-widest mb-2">// COMMAND LINE INTERFACE</h2>
-                    <h3 class="text-3xl font-extrabold text-white">Interactive Cyber Terminal</h3>
-                    <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
-                </div>
-
-                <div class="glass-card rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl font-code text-xs">
-                    <div class="bg-dark-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
-                            <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
-                            <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
-                            <span class="text-slate-400 ml-2">hassan@ff-terminal ~ %</span>
-                        </div>
-                        <span class="text-slate-500 text-[10px]">Type 'help' for commands</span>
-                    </div>
-
-                    <div id="terminalBody" class="p-4 sm:p-6 h-64 overflow-y-auto space-y-2 text-slate-300">
-                        <p class="text-brand-400">HASSAN FF Terminal [Version 2.0.26]</p>
-                        <p class="text-slate-400">Type <span class="text-yellow-400">'help'</span> to view available commands.</p>
-                    </div>
-
-                    <form onsubmit="handleTerminalCommand(event)" class="bg-dark-950 p-3 border-t border-slate-800 flex items-center gap-2">
-                        <span class="text-brand-400">$</span>
-                        <input type="text" id="terminalInput" autocomplete="off" placeholder="Type a command (e.g. help, projects, skills)..." class="w-full bg-transparent text-white focus:outline-none font-code text-xs">
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. GITHUB LIVE STATS BADGE CARD -->
-        <section id="github-stats" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800/40">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center max-w-3xl mx-auto mb-10">
-                    <h2 class="text-xs font-mono text-brand-400 uppercase tracking-widest mb-2">// LIVE REPOSITORY METRICS</h2>
-                    <h3 class="text-3xl font-extrabold text-white">GitHub Activity & Stats</h3>
-                    <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl border border-slate-700/80 space-y-6">
-                    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-brands fa-github text-3xl text-white"></i>
-                            <div>
-                                <h4 class="text-lg font-bold text-white">hassan-ff-max</h4>
-                                <a href="https://github.com/hassan-ff-max" target="_blank" class="text-xs text-brand-400 font-mono">github.com/hassan-ff-max</a>
+                        
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-start gap-2 text-xs text-slate-300">
+                                <i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
+                                <span>DOWNLOAD CRAZY THINGS</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-xs text-slate-300">
+                                <i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
+                                <span>DOWNLOAD FREE FIRE CHEATS ALSO</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-xs text-slate-300">
+                                <i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
+                                <span>CHECK BY CLICKING ON VISIT BUTTON</span>
                             </div>
                         </div>
-                        <a href="https://github.com/hassan-ff-max" target="_blank" class="px-4 py-2 rounded-xl bg-dark-900 border border-slate-700 text-slate-200 text-xs font-mono hover:border-brand-500">
-                            View Live GitHub
-                        </a>
                     </div>
 
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center font-mono">
-                        <div class="bg-dark-950 p-3 rounded-xl border border-slate-800">
-                            <span class="block text-xl font-bold text-brand-400">25+</span>
-                            <span class="text-[10px] text-slate-400">PUBLIC REPOS</span>
+                    <a href="https://hassan-toolkit-pro.vercel.app" target="_blank" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 text-slate-950 font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:brightness-110 active:scale-95 transition-all">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Hassan Toolkit
+                    </a>
+                </div>
+
+                <!-- Project 2: Hassan TikTok Downloader -->
+                <div class="bg-slate-900/70 border border-amber-500/30 rounded-2xl p-6 flex flex-col justify-between gold-glow-hover">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-300 text-xl font-black">
+                                <i class="fa-solid fa-cloud-arrow-down"></i>
+                            </div>
+                            <span class="text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 font-bold">
+                                Video Downloader
+                            </span>
                         </div>
-                        <div class="bg-dark-950 p-3 rounded-xl border border-slate-800">
-                            <span class="block text-xl font-bold text-emerald-400">100%</span>
-                            <span class="text-[10px] text-slate-400">UPTIME</span>
-                        </div>
-                        <div class="bg-dark-950 p-3 rounded-xl border border-slate-800">
-                            <span class="block text-xl font-bold text-purple-400">500+</span>
-                            <span class="text-[10px] text-slate-400">COMMITS</span>
-                        </div>
-                        <div class="bg-dark-950 p-3 rounded-xl border border-slate-800">
-                            <span class="block text-xl font-bold text-amber-400">PRO</span>
-                            <span class="text-[10px] text-slate-400">STATUS</span>
+                        <h3 class="font-cinzel text-xl sm:text-2xl font-bold gold-text mb-2">
+                            HASSAN TIKTOK DOWNLOADER
+                        </h3>
+                        <p class="text-xs text-slate-400 font-medium mb-4">
+                            Fast & HD TikTok video downloader platform.
+                        </p>
+                        
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-start gap-2 text-xs text-slate-300">
+                                <i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
+                                <span>DOWNLOAD WITHOUT WATERMARK</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-xs text-slate-300">
+                                <i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
+                                <span>DOWNLOAD WITH WATERMARK</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-xs text-slate-300">
+                                <i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
+                                <span>DOWNLOAD IN HD QUALITY</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-xs text-slate-300">
+                                <i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
+                                <span>DOWNLOAD AUDIO / MP3 ALSO</span>
+                            </div>
                         </div>
                     </div>
+
+                    <a href="https://hassan-ttvd.vercel.app" target="_blank" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 text-slate-950 font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:brightness-110 active:scale-95 transition-all">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit TikTok Downloader
+                    </a>
                 </div>
+
             </div>
         </section>
 
-        <!-- 5. TESTIMONIALS & REVIEWS SLIDER -->
-        <section id="testimonials" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/60">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center max-w-3xl mx-auto mb-14">
-                    <h2 class="text-xs font-mono text-brand-400 uppercase tracking-widest mb-2">// USER FEEDBACK</h2>
-                    <h3 class="text-3xl font-extrabold text-white">Reviews & Testimonials</h3>
-                    <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
+        <!-- SOCIAL MEDIA SECTION -->
+        <section id="socials" class="py-12 sm:py-16 px-4 max-w-6xl mx-auto w-full">
+            <div class="text-center mb-10">
+                <h2 class="font-cinzel text-2xl sm:text-4xl font-extrabold gold-text mb-2">
+                    CONNECT WITH ME
+                </h2>
+                <p class="text-slate-400 text-xs sm:text-sm font-semibold">
+                    Follow my official social media channels
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                
+                <!-- TikTok Card -->
+                <a href="https://tiktok.com/@maryo3211" target="_blank" class="group bg-slate-900/60 border border-amber-500/20 hover:border-amber-400 p-5 sm:p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 bg-slate-900/80 gold-glow-hover">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-slate-900 to-black border-2 border-amber-400 flex items-center justify-center text-2xl text-amber-300 mb-3 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-1">TikTok</span>
+                    <h3 class="font-montserrat font-extrabold text-white text-sm mb-1">HASSAN OFC ACCOUNT</h3>
+                    <span class="text-xs font-medium text-slate-400 group-hover:text-amber-300 transition-colors">@maryo3211</span>
+                </a>
+
+                <!-- YouTube Card -->
+                <a href="https://youtube.com/@vkdongaming678" target="_blank" class="group bg-slate-900/60 border border-amber-500/20 hover:border-amber-400 p-5 sm:p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 bg-slate-900/80 gold-glow-hover">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-slate-900 to-red-950 border-2 border-amber-400 flex items-center justify-center text-2xl text-red-500 mb-3 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-1">YouTube</span>
+                    <h3 class="font-montserrat font-extrabold text-white text-sm mb-1">HASSAN OFC CHANNEL</h3>
+                    <span class="text-xs font-medium text-slate-400 group-hover:text-amber-300 transition-colors">@vkdongaming678</span>
+                </a>
+
+                <!-- Instagram Card -->
+                <a href="https://instagram.com/end_hassan_ff" target="_blank" class="group bg-slate-900/60 border border-amber-500/20 hover:border-amber-400 p-5 sm:p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 bg-slate-900/80 gold-glow-hover">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-purple-900 to-pink-900 border-2 border-amber-400 flex items-center justify-center text-2xl text-pink-400 mb-3 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-1">Instagram</span>
+                    <h3 class="font-montserrat font-extrabold text-white text-sm mb-1">HASSAN OFC ACCOUNT</h3>
+                    <span class="text-xs font-medium text-slate-400 group-hover:text-amber-300 transition-colors">@end_hassan_ff</span>
+                </a>
+
+                <!-- GitHub Card -->
+                <a href="https://github.com/hassan-ff-max" target="_blank" class="group bg-slate-900/60 border border-amber-500/20 hover:border-amber-400 p-5 sm:p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 bg-slate-900/80 gold-glow-hover">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-slate-800 to-slate-950 border-2 border-amber-400 flex items-center justify-center text-2xl text-slate-200 mb-3 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-1">GitHub</span>
+                    <h3 class="font-montserrat font-extrabold text-white text-sm mb-1">HASSAN OFC ACCOUNT</h3>
+                    <span class="text-xs font-medium text-slate-400 group-hover:text-amber-300 transition-colors">hassan-ff-max</span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- PHOTO GALLERY SECTION -->
+        <section id="gallery" class="py-12 sm:py-16 px-4 max-w-6xl mx-auto w-full">
+            <div class="text-center mb-10">
+                <h2 class="font-cinzel text-2xl sm:text-4xl font-extrabold gold-text mb-2">
+                    PHOTO GALLERY
+                </h2>
+                <p class="text-slate-400 text-xs sm:text-sm font-semibold">
+                    Tap any image to view in high resolution
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
+                
+                <!-- Gallery Image 1 -->
+                <div onclick="openLightbox('https://i.ibb.co/8LbFsWq0/1792492990190.jpg')" class="group relative aspect-square rounded-2xl overflow-hidden border-2 border-amber-500/30 cursor-pointer gold-glow-hover">
+                    <img src="https://i.ibb.co/8LbFsWq0/1792492990190.jpg" alt="Gallery Image 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/111/D4AF37?text=Image+1'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                        <span class="text-amber-300 font-bold text-xs flex items-center gap-1.5">
+                            <i class="fa-solid fa-expand"></i> View
+                        </span>
+                    </div>
                 </div>
 
-                <div class="glass-card p-8 rounded-2xl border border-slate-700/80 text-center relative" id="testimonialCard">
-                    <div class="text-amber-400 text-lg space-x-1 mb-4" id="reviewStars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <!-- Gallery Image 2 -->
+                <div onclick="openLightbox('https://i.ibb.co/21qmyHBJ/jawadmd.jpg')" class="group relative aspect-square rounded-2xl overflow-hidden border-2 border-amber-500/30 cursor-pointer gold-glow-hover">
+                    <img src="https://i.ibb.co/21qmyHBJ/jawadmd.jpg" alt="Gallery Image 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/111/D4AF37?text=Image+2'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                        <span class="text-amber-300 font-bold text-xs flex items-center gap-1.5">
+                            <i class="fa-solid fa-expand"></i> View
+                        </span>
                     </div>
-                    <p class="text-slate-300 italic text-base sm:text-lg max-w-2xl mx-auto mb-6" id="reviewText">
-                        "Hassan TT Downloader is insanely fast! Downloaded TikTok videos without watermark instantly in HD quality."
+                </div>
+
+                <!-- Gallery Image 3 -->
+                <div onclick="openLightbox('https://i.ibb.co/Ng9PdyMK/jawadmd.jpg')" class="group relative aspect-square rounded-2xl overflow-hidden border-2 border-amber-500/30 cursor-pointer gold-glow-hover">
+                    <img src="https://i.ibb.co/Ng9PdyMK/jawadmd.jpg" alt="Gallery Image 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/111/D4AF37?text=Image+3'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                        <span class="text-amber-300 font-bold text-xs flex items-center gap-1.5">
+                            <i class="fa-solid fa-expand"></i> View
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Gallery Image 4 -->
+                <div onclick="openLightbox('https://i.postimg.cc/nLx4FJKr/1000005452.png')" class="group relative aspect-square rounded-2xl overflow-hidden border-2 border-amber-500/30 cursor-pointer gold-glow-hover">
+                    <img src="https://i.postimg.cc/nLx4FJKr/1000005452.png" alt="Gallery Image 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/111/D4AF37?text=Image+4'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                        <span class="text-amber-300 font-bold text-xs flex items-center gap-1.5">
+                            <i class="fa-solid fa-expand"></i> View
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT ME SECTION -->
+        <section id="contact" class="py-12 sm:py-16 px-4 max-w-4xl mx-auto w-full">
+            <div class="bg-slate-900/80 border border-amber-500/30 rounded-3xl p-6 sm:p-10 gold-glow">
+                
+                <div class="text-center mb-8">
+                    <h2 class="font-cinzel text-2xl sm:text-4xl font-extrabold gold-text mb-2">
+                        CONTACT ME
+                    </h2>
+                    <p class="text-slate-400 text-xs sm:text-sm font-semibold">
+                        Get in touch for free website requests & inquiries
                     </p>
-                    <h4 class="text-white font-bold font-mono" id="reviewAuthor">— Ali Raza</h4>
-                    <p class="text-xs text-brand-400 font-mono mt-1" id="reviewRole">Verified User (TT Downloader)</p>
-
-                    <div class="flex items-center justify-center gap-4 mt-8">
-                        <button onclick="prevReview()" class="w-9 h-9 rounded-xl bg-dark-900 border border-slate-700 text-slate-300 hover:text-brand-400">
-                            <i class="fa-solid fa-chevron-left text-xs"></i>
-                        </button>
-                        <button onclick="nextReview()" class="w-9 h-9 rounded-xl bg-dark-900 border border-slate-700 text-slate-300 hover:text-brand-400">
-                            <i class="fa-solid fa-chevron-right text-xs"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT SECTION -->
-        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/60">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center max-w-3xl mx-auto mb-14">
-                    <h2 class="text-xs font-mono text-brand-400 uppercase tracking-widest mb-2">// GET IN TOUCH</h2>
-                    <h3 class="text-3xl font-extrabold text-white">Contact Hassan FF</h3>
-                    <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-                    <div class="lg:col-span-5 space-y-4">
-                        <div class="glass-card p-6 rounded-2xl space-y-4">
-                            <h4 class="text-xl font-bold text-white">Direct Contact</h4>
-                            
-                            <div class="space-y-3 font-mono text-xs">
-                                <div class="flex items-center gap-3">
-                                    <i class="fa-solid fa-envelope text-brand-400 text-base"></i>
-                                    <a href="mailto:ansarbubble43@gmail.com" class="text-slate-300 hover:text-brand-400 break-all">ansarbubble43@gmail.com</a>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
-                                    <a href="https://wa.me/+923372938160" target="_blank" class="text-slate-300 hover:text-emerald-400">+92 337 2938160</a>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <i class="fa-brands fa-github text-slate-200 text-base"></i>
-                                    <a href="https://github.com/hassan-ff-max" target="_blank" class="text-slate-300 hover:text-brand-400">hassan-ff-max</a>
-                                </div>
-                            </div>
+                <!-- Quick Action Contact Buttons -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                    
+                    <!-- WhatsApp Direct Link -->
+                    <a href="https://wa.me/923294675242" target="_blank" class="p-4 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 hover:border-emerald-400 flex items-center gap-4 transition-all hover:bg-emerald-900/40">
+                        <div class="w-12 h-12 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-2xl font-bold">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block">HASSAN OFC WA</span>
+                            <span class="text-sm font-black text-white">+923294675242</span>
+                        </div>
+                    </a>
+
+                    <!-- Direct Email Link -->
+                    <a href="mailto:ansarbubble43@gmail.com" class="p-4 rounded-2xl bg-amber-950/60 border border-amber-500/40 hover:border-amber-400 flex items-center gap-4 transition-all hover:bg-amber-900/40">
+                        <div class="w-12 h-12 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="overflow-hidden">
+                            <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">HASSAN OFC EMAIL</span>
+                            <span class="text-xs sm:text-sm font-black text-white truncate block">ansarbubble43@gmail.com</span>
+                        </div>
+                    </a>
+
+                </div>
+
+                <!-- Direct Email Send Form via FormSubmit -->
+                <form action="https://formsubmit.co/ansarbubble43@gmail.com" method="POST" class="space-y-4">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="New Portfolio Message from Hassan Website!">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">Your Name</label>
+                            <input type="text" name="name" required placeholder="Enter your name" class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-amber-500/30 text-white text-xs sm:text-sm focus:outline-none focus:border-amber-400 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">Your Email</label>
+                            <input type="email" name="email" required placeholder="Enter your email" class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-amber-500/30 text-white text-xs sm:text-sm focus:outline-none focus:border-amber-400 transition-colors">
                         </div>
                     </div>
 
-                    <!-- BLANK CONTACT FORM -->
-                    <div class="lg:col-span-7">
-                        <form onsubmit="handleFormSubmit(event)" class="glass-card p-6 sm:p-8 rounded-2xl space-y-4">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-mono text-slate-300 uppercase mb-1">Name Field</label>
-                                    <!-- COMPLETELY BLANK NAME FIELD -->
-                                    <input type="text" id="formName" value="" required placeholder="Enter your name..." class="w-full bg-dark-950 border border-slate-700/80 rounded-xl px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 text-sm">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-mono text-slate-300 uppercase mb-1">Email Field</label>
-                                    <!-- COMPLETELY BLANK EMAIL FIELD -->
-                                    <input type="email" id="formEmail" value="" required placeholder="Enter your email..." class="w-full bg-dark-950 border border-slate-700/80 rounded-xl px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 text-sm">
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-mono text-slate-300 uppercase mb-1">Subject</label>
-                                <input type="text" id="formSubject" required placeholder="Project / Inquiry subject..." class="w-full bg-dark-950 border border-slate-700/80 rounded-xl px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 text-sm">
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-mono text-slate-300 uppercase mb-1">Message</label>
-                                <textarea id="formMessage" rows="4" required placeholder="Write your message here..." class="w-full bg-dark-950 border border-slate-700/80 rounded-xl px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 text-sm resize-none"></textarea>
-                            </div>
-
-                            <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-500 text-black font-bold text-sm font-mono flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-paper-plane"></i>
-                                <span>Send Message</span>
-                            </button>
-                        </form>
+                    <div>
+                        <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">Subject</label>
+                        <input type="text" name="subject" required placeholder="Subject (e.g. Website Request)" class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-amber-500/30 text-white text-xs sm:text-sm focus:outline-none focus:border-amber-400 transition-colors">
                     </div>
-                </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">Message</label>
+                        <textarea name="message" rows="4" required placeholder="Write your message here..." class="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-amber-500/30 text-white text-xs sm:text-sm focus:outline-none focus:border-amber-400 transition-colors resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg hover:brightness-110 active:scale-95 transition-all">
+                        <i class="fa-solid fa-paper-plane"></i> Send Direct Email
+                    </button>
+                </form>
+
             </div>
         </section>
 
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="border-t border-slate-800 bg-dark-950 py-10 px-4 text-center text-xs font-mono text-slate-500">
-        <p>&copy; <span id="year"></span> HASSAN FF. All Rights Reserved.</p>
-    </footer>
-
-    <!-- RESUME / CV MODAL -->
-    <div id="cvModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
-        <div class="glass-card max-w-2xl w-full rounded-2xl p-6 sm:p-8 border border-brand-500/40 relative space-y-6">
-            <button onclick="closeCvModal()" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-dark-900 border border-slate-700 text-slate-400 hover:text-white flex items-center justify-center">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="flex items-center gap-4 border-b border-slate-800 pb-4">
-                <img src="https://i.ibb.co/Ng9PdyMK/jawadmd.jpg" alt="CV Avatar" class="w-14 h-14 rounded-xl object-cover border border-brand-500">
-                <div>
-                    <h3 class="text-xl font-bold text-white">HASSAN FF</h3>
-                    <p class="text-xs font-mono text-brand-400">Full-Stack Developer & Esports Creator</p>
-                </div>
+        <!-- FOOTER -->
+        <footer class="w-full py-8 border-t border-amber-500/20 bg-slate-950/90 backdrop-blur-md text-center mt-12">
+            <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-bold text-slate-400">
+                <p>© 2026 HASSAN OFC PORTFOLIO. All Rights Reserved.</p>
+                <p class="gold-text">Crafted By HASSAN FF</p>
             </div>
+        </footer>
 
-            <div class="space-y-3 text-xs text-slate-300 font-mono">
-                <p><strong class="text-white">Email:</strong> ansarbubble43@gmail.com</p>
-                <p><strong class="text-white">WhatsApp:</strong> +92 337 2938160</p>
-                <p><strong class="text-white">Key Projects:</strong> Hassan Toolkit, Hassan TT Downloader</p>
-                <p><strong class="text-white">Specialization:</strong> REST APIs, Tailwind CSS, Media Extraction, JavaScript Web Applications</p>
-            </div>
-
-            <div class="flex gap-4 pt-2">
-                <button onclick="downloadCvDoc()" class="w-full py-3 rounded-xl bg-brand-500 text-black font-bold text-xs font-mono flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-download"></i> Download CV Summary
-                </button>
-            </div>
-        </div>
     </div>
 
-    <!-- TOAST POPUP -->
-    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 glass-card border border-brand-500 px-5 py-2.5 rounded-xl text-white text-xs font-mono opacity-0 invisible transition-all">
-        <span id="toastMsg">Message sent successfully!</span>
+    <!-- LIGHTBOX MODAL FOR GALLERY IMAGES -->
+    <div id="lightbox" class="fixed inset-0 bg-black/92 z-50 hidden flex items-center justify-center p-4 backdrop-blur-md" onclick="closeLightbox()">
+        <button onclick="closeLightbox()" class="absolute top-5 right-5 text-white text-3xl hover:text-amber-400 transition-colors p-2">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Full View" class="max-w-full max-h-[85vh] rounded-2xl border-2 border-amber-500 gold-glow object-contain" onclick="event.stopPropagation()">
     </div>
 
-    <!-- MAIN JAVASCRIPT -->
+    <!-- JAVASCRIPT FOR TYPEWRITER, CAROUSEL & INTERACTION -->
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // 50+ Languages Config
-        const languagesList = [
-            { code: 'en', name: 'English', short: 'EN' },
-            { code: 'ur', name: 'Urdu (اردو)', short: 'UR' },
-            { code: 'hi', name: 'Hindi (हिन्दी)', short: 'HI' },
-            { code: 'ar', name: 'Arabic (العربية)', short: 'AR' },
-            { code: 'es', name: 'Spanish (Español)', short: 'ES' },
-            { code: 'fr', name: 'French (Français)', short: 'FR' },
-            { code: 'de', name: 'German (Deutsch)', short: 'DE' },
-            { code: 'tr', name: 'Turkish (Türkçe)', short: 'TR' },
-            { code: 'zh-CN', name: 'Chinese (中文)', short: 'ZH' },
-            { code: 'ja', name: 'Japanese (日本語)', short: 'JA' },
-            { code: 'ru', name: 'Russian (Русский)', short: 'RU' },
-            { code: 'pt', name: 'Portuguese (Português)', short: 'PT' },
-            { code: 'it', name: 'Italian (Italiano)', short: 'IT' },
-            { code: 'bn', name: 'Bengali (বাংলা)', short: 'BN' },
-            { code: 'pa', name: 'Punjabi (ਪੰਜਾਬੀ)', short: 'PA' },
-            { code: 'id', name: 'Indonesian (Bahasa Indonesia)', short: 'ID' },
-            { code: 'fa', name: 'Persian (فارسی)', short: 'FA' },
-            { code: 'ko', name: 'Korean (한국어)', short: 'KO' },
-            { code: 'vi', name: 'Vietnamese (Tiếng Việt)', short: 'VI' },
-            { code: 'th', name: 'Thai (ไทย)', short: 'TH' },
-            { code: 'pl', name: 'Polish (Polski)', short: 'PL' },
-            { code: 'ro', name: 'Romanian (Română)', short: 'RO' },
-            { code: 'nl', name: 'Dutch (Nederlands)', short: 'NL' },
-            { code: 'sv', name: 'Swedish (Svenska)', short: 'SV' },
-            { code: 'da', name: 'Danish (Dansk)', short: 'DA' },
-            { code: 'fi', name: 'Finnish (Suomi)', short: 'FI' },
-            { code: 'no', name: 'Norwegian (Norsk)', short: 'NO' },
-            { code: 'uk', name: 'Ukrainian (Українська)', short: 'UK' },
-            { code: 'he', name: 'Hebrew (עברית)', short: 'HE' },
-            { code: 'ms', name: 'Malay (Bahasa Melayu)', short: 'MS' },
-            { code: 'sw', name: 'Swahili (Kiswahili)', short: 'SW' },
-            { code: 'ne', name: 'Nepali (नेपाली)', short: 'NE' },
-            { code: 'si', name: 'Sinhala (සිංහල)', short: 'SI' },
-            { code: 'my', name: 'Burmese (မြန်မာ)', short: 'MY' },
-            { code: 'tl', name: 'Tagalog (Filipino)', short: 'TL' },
-            { code: 'sq', name: 'Albanian (Shqip)', short: 'SQ' },
-            { code: 'el', name: 'Greek (Ελληνικά)', short: 'EL' },
-            { code: 'cs', name: 'Czech (Čeština)', short: 'CS' },
-            { code: 'hu', name: 'Hungarian (Magyar)', short: 'HU' }
+        // Quotes Data Array
+        const quotes = [
+            {
+                text: "“ Kamyabi ka rasta mushkil zaroor hota hai, par manzil unhi ko milti hai jo haar nahi maante. Waqt apka ho ya na ho, aapki mehnat hamesha rang laati hai. ”",
+                option: "OPTION 1 — SUCCESS & PATIENCE"
+            },
+            {
+                text: "“ Zindagi me sab kuch milna aasan nahi hota, par jo mushkilat se lad kar aage barhte hain, wahi asli pehchan banate hain. ”",
+                option: "OPTION 2 — LIFE & REALITY"
+            },
+            {
+                text: "“ Khamoshi sab se behtar jawab hai us insaan ko jo aapki mehnat par shaq kare. ”",
+                option: "OPTION 3 — SHORT & CATCHY"
+            }
         ];
 
-        function populateLanguages() {
-            const container = document.getElementById('languagesList');
-            container.innerHTML = '';
-            languagesList.forEach(lang => {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = 'w-full text-left px-3 py-1.5 rounded-lg text-xs font-mono text-slate-300 hover:bg-brand-500/20 hover:text-brand-400 flex justify-between';
-                btn.onclick = () => selectLang(lang.code, lang.short);
-                btn.innerHTML = `<span>${lang.name}</span><span class="text-brand-400 font-bold uppercase">${lang.short}</span>`;
-                container.appendChild(btn);
+        let currentQuoteIndex = 0;
+        let typewriterTimeout;
+        let autoPlayInterval;
+
+        const typewriterElement = document.getElementById('typewriter-text');
+        const quoteBadgeElement = document.getElementById('quote-option-badge');
+        const quoteCounterElement = document.getElementById('quote-counter');
+
+        // Typewriter Effect Logic
+        function typeWriter(text, index = 0) {
+            if (index < text.length) {
+                typewriterElement.innerHTML = text.substring(0, index + 1);
+                typewriterTimeout = setTimeout(() => typeWriter(text, index + 1), 30);
+            }
+        }
+
+        function displayQuote(index) {
+            clearTimeout(typewriterTimeout);
+            currentQuoteIndex = index;
+            typewriterElement.innerHTML = '';
+            
+            quoteBadgeElement.innerText = quotes[index].option;
+            quoteCounterElement.innerText = `${index + 1} / ${quotes.length}`;
+
+            // Update Active Option Button
+            document.querySelectorAll('.quote-btn').forEach((btn, i) => {
+                if (i === index) {
+                    btn.className = "quote-btn px-3 py-1.5 rounded-full border border-amber-500/40 text-[11px] sm:text-xs font-bold transition-all bg-amber-500/30 text-amber-300 shadow-md";
+                } else {
+                    btn.className = "quote-btn px-3 py-1.5 rounded-full border border-amber-500/40 text-[11px] sm:text-xs font-bold transition-all bg-slate-800 text-slate-300";
+                }
+            });
+
+            typeWriter(quotes[index].text);
+        }
+
+        function selectQuote(index) {
+            displayQuote(index);
+            resetAutoPlay();
+        }
+
+        function nextQuoteManual() {
+            let nextIndex = (currentQuoteIndex + 1) % quotes.length;
+            displayQuote(nextIndex);
+            resetAutoPlay();
+        }
+
+        function prevQuote() {
+            let prevIndex = (currentQuoteIndex - 1 + quotes.length) % quotes.length;
+            displayQuote(prevIndex);
+            resetAutoPlay();
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                let nextIndex = (currentQuoteIndex + 1) % quotes.length;
+                displayQuote(nextIndex);
+            }, 8500);
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
+
+        // Copy Quote Function
+        function copyCurrentQuote() {
+            const currentQuote = quotes[currentQuoteIndex].text;
+            navigator.clipboard.writeText(currentQuote).then(() => {
+                showToast("Quote Copied Successfully!");
+            }).catch(() => {
+                // Fallback for iframe / unsupported browsers
+                const tempTextArea = document.createElement("textarea");
+                tempTextArea.value = currentQuote;
+                document.body.appendChild(tempTextArea);
+                tempTextArea.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempTextArea);
+                showToast("Quote Copied Successfully!");
             });
         }
 
-        function toggleLangDropdown() {
-            document.getElementById('langDropdown').classList.toggle('hidden');
-        }
-
-        function selectLang(code, short) {
-            document.getElementById('currentLangLabel').textContent = short;
-            document.getElementById('langDropdown').classList.add('hidden');
-            const combo = document.querySelector('.goog-te-combo');
-            if (combo) {
-                combo.value = code;
-                combo.dispatchEvent(new Event('change'));
-            } else {
-                showToast(`Language changed to ${short}`);
-            }
-        }
-
-        // Typing Effect
-        const roles = ["HASSAN TOOLKIT", "HASSAN TT DOWNLOADER", "Full Stack Tools", "Gaming Content"];
-        let rIndex = 0, cIndex = 0, isDeleting = false;
-        function typeLoop() {
-            const role = roles[rIndex];
-            const el = document.getElementById('typewriter');
-            if (isDeleting) {
-                el.textContent = role.substring(0, cIndex - 1);
-                cIndex--;
-            } else {
-                el.textContent = role.substring(0, cIndex + 1);
-                cIndex++;
-            }
-            let speed = isDeleting ? 40 : 90;
-            if (!isDeleting && cIndex === role.length) {
-                speed = 1800;
-                isDeleting = true;
-            } else if (isDeleting && cIndex === 0) {
-                isDeleting = false;
-                rIndex = (rIndex + 1) % roles.length;
-                speed = 300;
-            }
-            setTimeout(typeLoop, speed);
-        }
-
-        // Particle Canvas
-        const canvas = document.getElementById('particles-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.8 + 0.5;
-                this.speedX = Math.random() * 0.4 - 0.2;
-                this.speedY = Math.random() * 0.4 - 0.2;
-            }
-            update() {
-                this.x += this.speedX; this.y += this.speedY;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
-            }
-            draw() {
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-        for (let i = 0; i < 40; i++) particles.push(new Particle());
-        function animParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => { p.update(); p.draw(); });
-            requestAnimationFrame(animParticles);
-        }
-        animParticles();
-
-        // Spotlight
-        window.addEventListener('mousemove', (e) => {
-            const spot = document.getElementById('spotlight');
-            spot.style.setProperty('--x', `${e.clientX}px`);
-            spot.style.setProperty('--y', `${e.clientY}px`);
-        });
-
-        // Theme Switcher
-        function setTheme(theme) {
-            document.body.className = `bg-dark-950 text-slate-200 font-sans selection:bg-brand-500 selection:text-black theme-${theme} overflow-x-hidden relative`;
-        }
-
-        // Terminal Command Logic
-        function handleTerminalCommand(e) {
-            e.preventDefault();
-            const input = document.getElementById('terminalInput');
-            const cmd = input.value.trim().toLowerCase();
-            const body = document.getElementById('terminalBody');
-
-            const userCmdLine = document.createElement('p');
-            userCmdLine.className = 'text-white font-bold';
-            userCmdLine.textContent = `$ ${input.value}`;
-            body.appendChild(userCmdLine);
-
-            const res = document.createElement('p');
-            res.className = 'text-slate-300';
-
-            switch (cmd) {
-                case 'help':
-                    res.innerHTML = "Available Commands: <span class='text-brand-400'>projects, skills, contact, stats, social, clear</span>";
-                    break;
-                case 'projects':
-                    res.innerHTML = "1. <a href='https://hassan-toolkit-pro.vercel.app' target='_blank' class='text-brand-400 underline'>HASSAN TOOLKIT</a><br>2. <a href='https://hassan-ttvd.vercel.app' target='_blank' class='text-pink-400 underline'>HASSAN TT DOWNLOADER</a>";
-                    break;
-                case 'skills':
-                    res.textContent = "Skills: HTML5, CSS3, Tailwind, JavaScript, REST APIs, Media Extraction, Video Editing";
-                    break;
-                case 'contact':
-                    res.textContent = "Email: ansarbubble43@gmail.com | WhatsApp: +92 337 2938160";
-                    break;
-                case 'stats':
-                    res.textContent = "GitHub: hassan-ff-max | 25+ Repos | Grandmaster Esports Status";
-                    break;
-                case 'social':
-                    res.textContent = "YouTube: @vkdongaming678 | TikTok: @maryo3211 | Insta: @end_hassan_ff";
-                    break;
-                case 'clear':
-                    body.innerHTML = '';
-                    input.value = '';
-                    return;
-                default:
-                    res.innerHTML = `<span class='text-red-400'>Command not recognized '${cmd}'. Type 'help' for commands.</span>`;
-            }
-
-            body.appendChild(res);
-            body.scrollTop = body.scrollHeight;
-            input.value = '';
-        }
-
-        // Testimonial Slider Data
-        const reviews = [
-            { author: "Ali Raza", role: "Verified User (TT Downloader)", text: "Hassan TT Downloader is super fast! Downloads TikTok videos with no watermark in HD instantly." },
-            { author: "Usman Khan", role: "Developer Community", text: "Hassan Toolkit is completely clean and useful. Great web tools collection." },
-            { author: "Hamza Esports", role: "Gamer Client", text: "HASSAN FF creates clean UI designs and top-notch gaming content strategy." }
-        ];
-        let revIndex = 0;
-        function updateReview() {
-            document.getElementById('reviewAuthor').textContent = `— ${reviews[revIndex].author}`;
-            document.getElementById('reviewRole').textContent = reviews[revIndex].role;
-            document.getElementById('reviewText').textContent = `"${reviews[revIndex].text}"`;
-        }
-        function nextReview() {
-            revIndex = (revIndex + 1) % reviews.length;
-            updateReview();
-        }
-        function prevReview() {
-            revIndex = (revIndex - 1 + reviews.length) % reviews.length;
-            updateReview();
-        }
-
-        // Resume Modal Handlers
-        function openCvModal() {
-            const m = document.getElementById('cvModal');
-            m.classList.remove('opacity-0', 'invisible');
-        }
-        function closeCvModal() {
-            const m = document.getElementById('cvModal');
-            m.classList.add('opacity-0', 'invisible');
-        }
-        function downloadCvDoc() {
-            showToast("Downloading HASSAN FF Resume summary...");
-        }
-
-        // Contact Form
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            showToast("Thank you! Message sent to HASSAN FF.");
-            document.getElementById('formName').value = '';
-            document.getElementById('formEmail').value = '';
-            document.getElementById('formSubject').value = '';
-            document.getElementById('formMessage').value = '';
-        }
-
-        function showToast(msg) {
-            const t = document.getElementById('toast');
-            document.getElementById('toastMsg').textContent = msg;
-            t.classList.remove('opacity-0', 'invisible');
+        // Toast Notification Helper
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = message;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
             setTimeout(() => {
-                t.classList.add('opacity-0', 'invisible');
-            }, 3500);
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 2500);
         }
 
-        // Mobile drawer toggle
-        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-            document.getElementById('mobileMenu').classList.toggle('flex');
-        });
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            if(menu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars';
+            } else {
+                icon.className = 'fa-solid fa-xmark';
+            }
+        }
 
+        // Lightbox Functions
+        function openLightbox(imgSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imgSrc;
+            lightbox.classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+        }
+
+        // Initialize on page load
         window.onload = function() {
-            typeLoop();
-            populateLanguages();
+            displayQuote(0);
+            startAutoPlay();
         };
     </script>
 </body>
